@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@font-face {
+  font-family: "DINNextLTArabic-Regular";
+  src: url("./fonts/DINNextLTArabic-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "mulish";
+  src: url("./fonts/mulish/Mulish-VariableFont_wght.ttf") format("truetype");
+}
+:root{
+  --main-color:#34C87C;
+  --main-BG-color:#0D1C22;
+}
+body {
+  font-family: "DINNextLTArabic-Regular", sans-serif;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.MuiFormControlLabel-root.MuiFormControlLabel-labelPlacementEnd {
+  margin: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.MuiButtonBase-root.MuiRadio-root {
+  padding: 0px !important;
+}
+
+.MuiTypography-root {
+  position: relative;
+  bottom: 2px;
+  margin-inline-start: 15px !important;
+}
+
+::selection {
+  background-color: #34c87c;
+  color: white;
+}

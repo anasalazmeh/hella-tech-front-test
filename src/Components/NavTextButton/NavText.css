@@ -1,0 +1,9 @@
+.navButton {
+  width: 190px;
+  padding: 21px 35px 22px 35px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  border: 2px solid var(--Main-Color, #34c87c);
+  flex-shrink: 0;
+}

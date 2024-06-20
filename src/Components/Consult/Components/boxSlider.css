@@ -1,0 +1,47 @@
+.box{
+  width: 100%;
+}
+.box img{
+  width: 100%;
+  height: calc(544.42px - 146.15px);
+  /* background-size: cover; */
+}
+.box  .body{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #0D1C22;
+}
+.box  .body .name{
+  color: #28ea86;
+  font-size: 22px;
+  font-weight: 500;
+  margin: 8px;
+  margin-bottom: 0;
+}
+.box .body .type{
+  font-size: 20px;
+  font-weight: 400;
+  color: white;
+  margin: 8px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.box .body .hr{
+  width: 50%;
+  max-width: 80px;
+  border: 2.5px solid #28ea86;
+  border-radius: 50px;
+  margin: 8px 0;
+}
+.box .body  button{
+  width: 216.4px;
+  max-width: 50%;
+  height: 29.79px;
+  border: 1px solid #28ea86;
+  border-radius: 10px;
+  margin: 20px;
+  margin-top: 5px;
+  background-color: white;
+}
