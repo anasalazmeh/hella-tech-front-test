@@ -306,7 +306,10 @@ const FormConsult = () => {
           <Button
             variant="contained"
             style={{ color: "white" }}
-            onClick={handleClose}
+            onClick={()=>{
+              handleClose()
+              navigator('/')
+            }}
           >
             {t("close")}
           </Button>

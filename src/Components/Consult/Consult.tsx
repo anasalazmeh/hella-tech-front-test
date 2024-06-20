@@ -9,32 +9,32 @@ const Consult = () => {
   const { t, i18n } = useTranslation();
   const images = [
     {
-      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTq5yk5SsDI5Xzlprb7fAOn2mI4ohmehvtHrCZnTalkEMyjsoFR4dDN0hEyFyEEcViEPiE&usqp=CAU",
+      image: process.env.PUBLIC_URL +"/assets/Rectangle0.PNG",
       name: "Anas Kahreyah",
       type: "Tech specialist",
     },
     {
-      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROgSx6sA3DeSsMDkcIo0OzNPHPJCFrjSGGhg&s",
+      image: process.env.PUBLIC_URL +"/assets/Rectangle1.PNG",
       name: "Ayla bektas",
       type: "Marketing specialist",
     },
     {
-      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOQRbHW5p-0yWDV5OeSLgmvXdJ8JIMrNiZY5pghPjx8Et3Dm4xqEKLUIFXh3Yh34iS67s&usqp=CAU",
+      image: process.env.PUBLIC_URL +"/assets/Rectangle2.PNG",
       name: "Ahmed Yassine",
       type: "AI Specialist",
     },
     {
-      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTq5yk5SsDI5Xzlprb7fAOn2mI4ohmehvtHrCZnTalkEMyjsoFR4dDN0hEyFyEEcViEPiE&usqp=CAU",
+      image: process.env.PUBLIC_URL + "/assets/Rectangle0.PNG",
       name: "Anas Kahreyah",
       type: "Tech specialist",
     },
     {
-      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROgSx6sA3DeSsMDkcIo0OzNPHPJCFrjSGGhg&s",
+      image: process.env.PUBLIC_URL + "/assets/Rectangle1.PNG",
       name: "Ayla bektas",
       type: "Marketing specialist",
     },
     {
-      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOQRbHW5p-0yWDV5OeSLgmvXdJ8JIMrNiZY5pghPjx8Et3Dm4xqEKLUIFXh3Yh34iS67s&usqp=CAU",
+      image: process.env.PUBLIC_URL + "/assets/Rectangle2.PNG",
       name: "Ahmed Yassine",
       type: "AI Specialist",
     },
