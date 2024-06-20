@@ -9,7 +9,7 @@ const Consult = () => {
   const { t, i18n } = useTranslation();
   const images = [
     {
-      image: "https://t4.ftcdn.net/jpg/06/48/39/19/360_F_648391979_uMz6EwAlKNIJnK9r46UpTiM17nT8GuLl.jpg",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTq5yk5SsDI5Xzlprb7fAOn2mI4ohmehvtHrCZnTalkEMyjsoFR4dDN0hEyFyEEcViEPiE&usqp=CAU",
       name: "Anas Kahreyah",
       type: "Tech specialist",
     },
@@ -24,7 +24,7 @@ const Consult = () => {
       type: "AI Specialist",
     },
     {
-      image: "https://t4.ftcdn.net/jpg/06/48/39/19/360_F_648391979_uMz6EwAlKNIJnK9r46UpTiM17nT8GuLl.jpg",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTq5yk5SsDI5Xzlprb7fAOn2mI4ohmehvtHrCZnTalkEMyjsoFR4dDN0hEyFyEEcViEPiE&usqp=CAU",
       name: "Anas Kahreyah",
       type: "Tech specialist",
     },
