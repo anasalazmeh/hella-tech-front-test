@@ -15,13 +15,13 @@ import {
 } from "@mui/material";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const FormConsult = () => {
   const { consultant_id } = useParams();
   const { t } = useTranslation();
   const [open, setOpen] = React.useState(false);
-
+  const navigate = useNavigate();
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -308,7 +308,7 @@ const FormConsult = () => {
             style={{ color: "white" }}
             onClick={()=>{
               handleClose()
-              navigator('/')
+              navigate('/')
             }}
           >
             {t("close")}
