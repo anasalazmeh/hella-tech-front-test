@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import AboutUs from "../../Components/AboutUs/AboutUs";
 import Consulting from "../../Components/Consulting/Consulting";
@@ -14,6 +14,12 @@ import HelaVideo from "../HelaVideo/HelaVideo";
 import Consult from "../../Components/Consult/Consult";
 const MainPage = () => {
   const { t, i18n } = useTranslation();
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  });
   const sectionRefs = [
     useRef(null),
     useRef(null),
