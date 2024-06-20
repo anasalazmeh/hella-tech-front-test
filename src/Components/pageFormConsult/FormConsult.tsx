@@ -65,6 +65,7 @@ const FormConsult = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<FormData>({
     resolver: zodResolver(schema),
@@ -94,6 +95,7 @@ const FormConsult = () => {
         status: 1,
         consultant_id,
       });
+      reset()
       handleClickOpen();
     } catch (err) {
       setOpenError(true);
