@@ -99,6 +99,13 @@
     font-size: 18px;
     margin-bottom: 8px;
   } 
+  .consult .your-info .section .box-row .input{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    color: white;
+    margin: 13px 0px;
+  }
 }
 .consult .your-info .section .box-row .input input{
   border-radius: 20px;
