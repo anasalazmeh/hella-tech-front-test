@@ -9,17 +9,17 @@ const Consult = () => {
   const { t, i18n } = useTranslation();
   const images = [
     {
-      image: process.env.PUBLIC_URL + "/assets/Rectangle0.PNG",
+      image: process.env.PUBLIC_URL +"/assets/Rectangle0.PNG",
       name: "Anas Kahreyah",
       type: "Tech specialist",
     },
     {
-      image: process.env.PUBLIC_URL + "/assets/Rectangle1.PNG",
+      image: process.env.PUBLIC_URL +"/assets/Rectangle1.PNG",
       name: "Ayla bektas",
       type: "Marketing specialist",
     },
     {
-      image: process.env.PUBLIC_URL + "/assets/Rectangle2.PNG",
+      image: process.env.PUBLIC_URL +"/assets/Rectangle2.PNG",
       name: "Ahmed Yassine",
       type: "AI Specialist",
     },
