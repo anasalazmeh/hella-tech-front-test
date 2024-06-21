@@ -87,7 +87,6 @@ const FormConsult = () => {
     try {
       setSubmitLoading(true);
       console.log("data", data);
-
       await http.post("/consultations", {
         ...data,
         lang: localStorage.getItem("i18nextLng") === "ar" ? "ar" : "en",
@@ -97,6 +96,7 @@ const FormConsult = () => {
       });
       reset()
       handleClickOpen();
+      setSubmitLoading(false);
     } catch (err) {
       setOpenError(true);
     } finally {

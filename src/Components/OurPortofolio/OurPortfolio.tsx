@@ -58,7 +58,7 @@ const OurPortfolio = () => {
               <div id="OurPortfolio1" className="text-lg    text-[#34c87c]">
                 //{" "}
                 <div id="OurPortfolio" className="text-[#1c1d22] contents">
-                  07 . {t("our_portfolio")}
+                  09 . {t("our_portfolio")}
                 </div>
               </div>
               <div className="text-4xl tracking-wide spac font-medium text-[#1c1d22] sm:w-full lg:w-[400px]">

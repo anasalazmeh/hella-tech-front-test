@@ -37,6 +37,7 @@ const Consult = () => {
       image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOQRbHW5p-0yWDV5OeSLgmvXdJ8JIMrNiZY5pghPjx8Et3Dm4xqEKLUIFXh3Yh34iS67s&usqp=CAU",
       name: "Ahmed Yassine",
       type: "AI Specialist",
+      
     },
   ];
 
@@ -97,7 +98,7 @@ const Consult = () => {
             <div id="ConsultNow" className="text-lg text-[#34c87c]">
               //{" "}
               <div id="OurPortfolio" className="text-[#1c1d22] contents">
-                07 . {t("consult_now")}
+                08 . {t("consult_now")}
               </div>
             </div>
             <div className="text-4xl tracking-wide spac font-medium text-[#1c1d22] sm:w-full lg:w-[750px]">

@@ -4,16 +4,16 @@
 .box img{
   width: 100%;
   height: calc(544.42px - 146.15px);
-  /* background-size: cover; */
+  background-size: cover;
 }
-.box  .body{
+.box .body{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: #0D1C22;
 }
-.box  .body .name{
+.box .body .name{
   color: #28ea86;
   font-size: 22px;
   font-weight: 500;
