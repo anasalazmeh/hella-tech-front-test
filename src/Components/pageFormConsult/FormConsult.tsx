@@ -99,7 +99,7 @@ const FormConsult = () => {
       <div className="consult my-10">
         <div className="contact-by">
           <div className="address">
-            <p>{t("communicate_method")}</p>
+            <p>{t("contact_by")}</p>
           </div>
           <div className="grid">
             <div className="radio">
