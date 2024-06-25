@@ -158,7 +158,9 @@
     "errors_company_message":"The company name is too long",
     "errors_address_message":"The address is too long",
     "errors_consultation_subject_message1":"Please consultation subject must be at least 4 a value",
-    "errors_consultation_subject_message2":"The consultation is too long"
+    "errors_consultation_subject_message2":"The consultation is too long",
+    "consultation_subject":"Consultation subject",
+    "consultation_subject_placeholder":"Write in one line what's your consultation for..."
 
   }
 }

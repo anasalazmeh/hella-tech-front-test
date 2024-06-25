@@ -41,7 +41,7 @@ const FormConsult = () => {
       .string()
       .min(1, { message: t("errors_email_message1") })
       .email(t("errors_email_message2")),
-    company: z.string().max(260,{message:t("errors_company_message1")}),
+    company: z.string().max(260, { message: t("errors_company_message1") }),
     phone: z
       .string()
       .min(6, { message: t("errors_phone_message1") })
@@ -50,7 +50,7 @@ const FormConsult = () => {
     why: z
       .string()
       .min(4, { message: t("errors_consultation_subject_message1") })
-      .max(260, { message: t("errors_consultation_subject_message2")  }),
+      .max(260, { message: t("errors_consultation_subject_message2") }),
   });
   type FormData = z.infer<typeof schema>;
   const {
@@ -266,14 +266,14 @@ const FormConsult = () => {
             <div className="box-row">
               <div className="input">
                 <label htmlFor="why">
-                  <div className="box">why *</div>
+                  <div className="box">{t("consultation_subject")} *</div>
                 </label>
                 <input
                   {...register("why")}
                   type="text"
                   name="why"
                   id="why"
-                  placeholder="Why your consult"
+                  placeholder={t("consultation_subject_placeholder")}
                   className={`${
                     errors.why
                       ? "border-2 border-solid border-red-500"
@@ -281,7 +281,9 @@ const FormConsult = () => {
                   }`}
                 />
                 {errors.why && (
-                  <p className="text-red-500">{t("errors_consultation_subject_message")}</p>
+                  <p className="text-red-500">
+                    {t("errors_consultation_subject_message")}
+                  </p>
                 )}
               </div>
             </div>
