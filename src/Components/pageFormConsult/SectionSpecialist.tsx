@@ -3,28 +3,24 @@ import "./SectionSpecialist.css";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import http from "../../api/axios";
-interface DataType {
-  translations: {
-    name: {
-      en: string;
-      ar: string;
-    },
-    specialization: {
-      en: string;
-      ar: string;
-    },
-    description:{
-      en:string,
-      ar:string
-    }
-  };
-  image: string;
-
-}
+// interface DataType {
+//   translations:  {
+//     name: {
+//       [key:string]:"en"| "ar"
+//     },
+//     specialization: {
+//       [key:string]:"en"| "ar"
+//     },
+//     description:{
+//       [key:string]:"en"| "ar"
+//     };
+//   },
+//   image: string;
+// }
 const SectionSpecialist = () => {
-  const { t, i18n } = useTranslation();
+  const { t, i18n, } = useTranslation();
   const { consultant_id } = useParams();
-  const [data, setdata] = useState<DataType>();
+  const [data, setdata] = useState<any>();
   useEffect(() => {
     const GetData = async () => {
       await http
@@ -54,14 +50,14 @@ const SectionSpecialist = () => {
           >
             <h2 className="text-[12px] md:text-[50px] font-700 text-[#34C87C] m-0 p-0">
               {t("about")}{" "}
-              {i18n.language ==="ar" ?data?.translations.name.ar : data?.translations.name.en}
+              {data?.translations.name[i18n.language]}
             </h2>
             <p className="text-[8px] md:text-[36px] font-[400] mb-1 ">
-            {i18n.language ==="ar" ?data?.translations.specialization.ar : data?.translations.specialization.en}
+            {data?.translations.specialization[i18n.language]}
             </p>
           </div>
           <p className="leading-[12.7px] md:leading-[47.04px] my-5 mt-9 text-[9px] lg:text-[32px] font-[400] ">
-          {i18n.language ==="ar" ?data?.translations.description.ar : data?.translations.description.en}
+          {data?.translations.description[i18n.language]}
           </p>
         </div>
       </div>

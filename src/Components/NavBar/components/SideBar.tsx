@@ -141,7 +141,7 @@ const SideBar = ({
         </a>
         <div
           className={`text-xl font-['DINNextLTArabic-Regular'] hover:text-[#34C87C] hover:cursor-pointer font-normal leading-normal mb-2 ml-8 ${
-            isContactUs
+            isContactUs || isConsultNow
               ? " text-[#34C87C]  font-weight-800 text-[18px] "
               : "text-xl font-normal leading-normal"
           } `}

@@ -1,12 +1,10 @@
-import React, { useEffect, useRef } from "react";
-import { useParams } from "react-router-dom";
-import SectionSpecialist from "../../Components/pageFormConsult/SectionSpecialist";
+import { useEffect } from "react";
 import FormConsult from "../../Components/pageFormConsult/FormConsult";
-import NavBar from "../../Components/NavBar/NavBar";
+import SectionSpecialist from "../../Components/pageFormConsult/SectionSpecialist";
 import WhatsappIcon from "../../Components/WhatsappIcon/WhatsappIcon";
-
+import NavBar from "../../Components/NavBar/NavBar";
+import { useSearchParams } from "react-router-dom";
 const ConsultNow = () => {
-  const { id } = useParams();
   useEffect(() => {
     window.scrollTo({
       top: 0,
@@ -15,8 +13,9 @@ const ConsultNow = () => {
   });
   return (
     <>
-      <WhatsappIcon />
-      <NavBar sectionRefs={null} isConsultNow />
+      
+     <NavBar sectionRefs={null} isConsultNow/>
+     <WhatsappIcon /> 
       <div className="w-full flex justify-center">
         <div className="w-full xl:w-[1225px] lg:w-full">
           <SectionSpecialist />

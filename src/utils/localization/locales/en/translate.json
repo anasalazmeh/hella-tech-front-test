@@ -146,7 +146,19 @@
     "company_name":"Company name",
     "address":"Address",
     "john_david":"John David",
-    "get_consultation":"Get Consultation"
+    "get_consultation":"Get Consultation",
+    "the_message_is_consult_1":"A consultation request has been submitted",
+    "the_message_is_consult_2":"We will contact you soon",
+    "errors_name_message1":"Please full name must be at least 3 a value",
+    "errors_name_message2":"The name is too long",
+    "errors_email_message1":"This field has to be filled.",
+    "errors_email_message2":"This is not a valid email.",
+    "errors_phone_message1":"Please phone must be at least 6 a value",
+    "errors_phone_message2":"The phone is too long",
+    "errors_company_message":"The company name is too long",
+    "errors_address_message":"The address is too long",
+    "errors_consultation_subject_message1":"Please consultation subject must be at least 4 a value",
+    "errors_consultation_subject_message2":"The consultation is too long"
 
   }
 }

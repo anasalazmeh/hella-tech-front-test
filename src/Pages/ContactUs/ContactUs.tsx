@@ -18,7 +18,7 @@ const ContactUs = () => {
   return (
     <>
       <WhatsappIcon />
-      <NavBar sectionRefs={null} isContactUs />
+      <NavBar sectionRefs={null} isContactUs/>
 
       {/* Image With text*/}
 

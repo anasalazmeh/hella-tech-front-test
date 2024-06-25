@@ -32,34 +32,25 @@ const FormConsult = () => {
 
   // form logic
   const schema = z.object({
-    communicate_method: z
-      .string()
-      .min(1, { message: "Please select a value" })
-      .max(260, { message: "The name is too long" }),
+    communicate_method: z.string().min(1),
     name: z
       .string()
-      .min(3, { message: "Please full name must be at least 3 a value" })
-      .max(260, { message: "The name is too long" }),
+      .min(3, { message: t("errors_name_message1") })
+      .max(260, { message: t("errors_name_message2") }),
     email: z
       .string()
-      .min(1, { message: "This field has to be filled." })
-      .email("this is not a valid email."),
-    company: z
-      .string()
-      .min(3, { message: "Please company name must be at least 3 a value" })
-      .max(260, { message: "The company name is too long" }),
+      .min(1, { message: t("errors_email_message1") })
+      .email(t("errors_email_message2")),
+    company: z.string().max(260,{message:t("errors_company_message1")}),
     phone: z
       .string()
-      .min(4, { message: "Please your phone must be at least 4 a value" })
-      .max(50, { message: "The phone is too long" }),
-    address: z
-      .string()
-      .min(4, { message: "Please address must be at least 4 a value" })
-      .max(260, { message: "The address is too long" }),
+      .min(6, { message: t("errors_phone_message1") })
+      .max(50, { message: t("errors_phone_message2") }),
+    address: z.string().max(260, { message: t("errors_address_message1") }),
     why: z
       .string()
-      .min(4, { message: "Please why must be at least 4 a value" })
-      .max(260, { message: "The why is too long" }),
+      .min(4, { message: t("errors_consultation_subject_message1") })
+      .max(260, { message: t("errors_consultation_subject_message2")  }),
   });
   type FormData = z.infer<typeof schema>;
   const {
@@ -94,7 +85,7 @@ const FormConsult = () => {
         status: 1,
         consultant_id,
       });
-      reset()
+      reset();
       handleClickOpen();
       setSubmitLoading(false);
     } catch (err) {
@@ -177,9 +168,15 @@ const FormConsult = () => {
                   name="name"
                   id="name"
                   placeholder={t("john_david")}
-                  className={`${errors.name ? "border-4 border-solid border-red-700":"border-4 border-solid focus:border-[#34C87C]"}`}
+                  className={`${
+                    errors.name
+                      ? "border-2 border-solid border-red-500"
+                      : "border-2 border-solid focus:border-[#34C87C]"
+                  }`}
                 />
-                {errors.name && <p className="text-red-700">{errors.name?.message}</p>}
+                {errors.name && (
+                  <p className="text-red-500">{t("errors_name_message")}</p>
+                )}
               </div>
               <div className="input">
                 <label htmlFor="email">
@@ -191,9 +188,15 @@ const FormConsult = () => {
                   name="email"
                   id="email"
                   placeholder="example@yourmail.com"
-                  className={`${errors.email ? "border-4 border-solid border-red-700":"border-4 border-solid focus:border-[#34C87C]"}`}
+                  className={`${
+                    errors.email
+                      ? "border-2 border-solid border-red-500"
+                      : "border-2 border-solid focus:border-[#34C87C]"
+                  }`}
                 />
-                {errors.email && <p className="text-red-700">{errors.email?.message}</p>}
+                {errors.email && (
+                  <p className="text-red-500">{t("errors_email_message")}</p>
+                )}
               </div>
             </div>
             <div className="box-row">
@@ -207,9 +210,15 @@ const FormConsult = () => {
                   name="phone"
                   id="phone"
                   placeholder="+0000000000"
-                  className={`${errors.phone ? "border-4 border-solid border-red-700":"border-4 border-solid focus:border-[#34C87C]"}`}
+                  className={`${
+                    errors.phone
+                      ? "border-2 border-solid border-red-500"
+                      : "border-2 border-solid focus:border-[#34C87C]"
+                  }`}
                 />
-                                {errors.phone && <p className="text-red-700">{errors.phone?.message}</p>}
+                {errors.phone && (
+                  <p className="text-red-500">{t("errors_phone_message")}</p>
+                )}
               </div>
               <div className="input">
                 <label htmlFor="company ">
@@ -221,15 +230,21 @@ const FormConsult = () => {
                   name="company"
                   id="company"
                   placeholder={t("company_name")}
-                  className={`${errors.company ? "border-4 border-solid border-red-700":"border-4 border-solid focus:border-[#34C87C]"}`}
+                  className={`${
+                    errors.company
+                      ? "border-2 border-solid border-red-500"
+                      : "border-2 border-solid focus:border-[#34C87C]"
+                  }`}
                 />
-                {errors.company && <p className="text-red-700">{errors.company?.message}</p>}
+                {errors.company && (
+                  <p className="text-red-500">{t("errors_company_message")}</p>
+                )}
               </div>
             </div>
             <div className="box-row">
               <div className="input">
                 <label htmlFor="address">
-                  <div className="box">{t("address")} *</div>
+                  <div className="box">{t("address")}</div>
                 </label>
                 <input
                   {...register("address")}
@@ -237,9 +252,15 @@ const FormConsult = () => {
                   name="address"
                   id="address"
                   placeholder={t("your_address")}
-                  className={`${errors.address ? "border-4 border-solid border-red-700":"border-4 border-solid focus:border-[#34C87C]"}`}
+                  className={`${
+                    errors.address
+                      ? "border-2 border-solid border-red-500"
+                      : "border-2 border-solid focus:border-[#34C87C]"
+                  }`}
                 />
-                {errors.address && <p className="text-red-700">{errors.address?.message}</p>}
+                {errors.address && (
+                  <p className="text-red-500">{t("errors_address_message")}</p>
+                )}
               </div>
             </div>
             <div className="box-row">
@@ -253,9 +274,15 @@ const FormConsult = () => {
                   name="why"
                   id="why"
                   placeholder="Why your consult"
-                  className={`${errors.why ? "border-4 border-solid border-red-700":"border-4 border-solid focus:border-[#34C87C]"}`}
+                  className={`${
+                    errors.why
+                      ? "border-2 border-solid border-red-500"
+                      : "border-2 border-solid focus:border-[#34C87C]"
+                  }`}
                 />
-                {errors.why && <p className="text-red-700">{errors.why?.message}</p>}
+                {errors.why && (
+                  <p className="text-red-500">{t("errors_consultation_subject_message")}</p>
+                )}
               </div>
             </div>
           </div>
@@ -298,17 +325,17 @@ const FormConsult = () => {
             id="alert-dialog-description"
             className="flex flex-col justify-center items-center"
           >
-            <div className="text-[24px]">{t("the_message_has_been_sent")}</div>
-            <div className="font-bold">{t("thank_you_for_reaching_us")}</div>
+            <div className="text-[24px]">{t("the_message_is_consult_1")}</div>
+            <div className="font-bold">{t("the_message_is_consult_2")}</div>
           </DialogContentText>
         </DialogContent>
         <DialogActions style={{ display: "flex", justifyContent: "center" }}>
           <Button
             variant="contained"
             style={{ color: "white" }}
-            onClick={()=>{
-              handleClose()
-              navigate('/')
+            onClick={() => {
+              handleClose();
+              navigate("/");
             }}
           >
             {t("close")}

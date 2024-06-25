@@ -14,12 +14,12 @@ const Routing = () => {
     <div dir={DirectionResolver()}>
       <Routes>
         <Route path="/" element={<MainPage />} />
-        <Route path="consult-now/:consultant_id" element={<ConsultNow />} />
         <Route path="/contact-us" element={<ContactUs />} />
         <Route path="/hela-video" element={<HelaVideo />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/refund-policy" element={<RefundPolicy />} />
         <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+        <Route path="/consult-now/:consultant_id?" element={<ConsultNow />} />
       </Routes>
       <Footer />
     </div>

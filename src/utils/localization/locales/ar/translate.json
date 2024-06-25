@@ -147,7 +147,19 @@
     "your_address":"عنوانك",
     "address":"العنوان",
     "john_david":"جون ديفيد",
-    "get_consultation":"أحصل على استشارة",
-    "company_name":"أسم الشركة"
+    "get_consultation":"احصل على استشارة",
+    "company_name":"اسم الشركة",
+    "the_message_is_consult_1":"تم استلام طلب الاستشارة بنجاح.",
+    "the_message_is_consult_2":"سنتواصل معكم في أقرب وقت ممكن",
+    "errors_name_message1":"يرجى أن يكون الاسم الكامل من 3 قيمة على الأقل",
+    "errors_name_message2":"اسم طويل جدا",
+    "errors_email_message1":"يجب ملء هذا الحقل.",
+    "errors_email_message2":"هذا ليس بريدا إلكترونيا صالحا.",
+    "errors_phone_message1":"يرجى أن يكون الرقم الكامل من 6 قيمة على الأقل",
+    "errors_phone_message2":"هذا ليس الرقم غير صالحا.",
+    "errors_company_message":"اسم الشركة طويل جدا",
+    "errors_address_message":"العنوان طويل جدا",
+    "errors_consultation_subject_message1":"يرجى أن يكون موضوع الاستشارة من 4 قيمة على الأقل",
+    "errors_consultation_subject_message2":"موضوع الاستشارة طويل جدا"
   }
 }

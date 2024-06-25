@@ -17,7 +17,7 @@ const BoxSlider = ({ image, name, type }: Props) => {
         <p className=" text-white">{type}</p>
         <span className="hr w-1/2 max-w-[80px] border-[2.5px] border-solid border-[#28ea86] my-2"></span>
         <button
-          onClick={() => navigate("consult-now/1")}
+          onClick={() => navigate("consult-now?id=1")}
           className="w-1/2 max-w-[216.4px] h-[29.79px] border-[1px] border-solid border-[#28ea86] rounded-[10px] m-5 mt-1 bg-white"
         >
           {t("consult_now")}

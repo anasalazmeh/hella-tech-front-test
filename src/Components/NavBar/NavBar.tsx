@@ -56,7 +56,7 @@ const NavBar = ({
       sx={{ bgcolor: "white", py: "5px" }}
       onScroll={(v) => {}}
     >
-      <div className="w-full flex items-center  justify-between" dir="ltr">
+      <div className="w-full flex items-center justify-between" dir="ltr">
         <IconButton
           sx={{
             display: { xs: "flex", md: "flex", lg: "none" },
