@@ -22,7 +22,7 @@ const SectionSpecialist = () => {
   console.log(data)
   return (
     <div className="">
-      <div className="section-consult ">
+      <div className="section-consult">
         <img
           src={data?.image}
           alt=""
@@ -43,7 +43,7 @@ const SectionSpecialist = () => {
             {data?.translations.specialization[i18n.language]}
             </p>
           </div>
-          <p className="leading-[12.7px] md:leading-[47.04px] my-5 mt-9 text-[9px] lg:text-[32px] font-[400] ">
+          <p className="leading-[12.7px] md:leading-[47.04px] my-1 md:my-5 md:mt-9 text-[9px] lg:text-[32px] font-[400] ">
           {data?.translations.description[i18n.language]}
           </p>
         </div>

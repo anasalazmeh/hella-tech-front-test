@@ -80,10 +80,9 @@ const FormConsult = () => {
       console.log("data", data);
       await http.post("/consultations", {
         ...data,
-        lang: localStorage.getItem("i18nextLng") === "ar" ? "ar" : "en",
         order: 1,
         status: 1,
-        consultant_id:"1",
+        consultant_id,
       });
       reset();
       handleClickOpen();
@@ -96,8 +95,8 @@ const FormConsult = () => {
   };
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div className="consult my-10">
-        <div className="contact-by w-full my-5 text-black py-2 px-10 md:py-0 md:px-0">
+      <div className="consult my-5">
+        <div className="contact-by w-full md:my-5 text-black py-2 px-10 md:py-0 md:px-0">
           <div className="address text-[19px] md:text-[32px] font-500 text-black">
             <p>{t("contact_by")}</p>
           </div>
@@ -152,11 +151,11 @@ const FormConsult = () => {
             </div>
           </div>
         </div>
-        <div className="your-info w-full my-5 text-black py-2 px-10 md:py-0 md:px-0">
+        <div className="your-info w-full my-2 text-black py-2 px-10 md:py-0 md:px-0">
           <div className="address text-[19px] md:text-[32px] font-500 text-black">
             <p>{t("your_info")}</p>
           </div>
-          <div className="section">
+          <div className="section text-black">
             <div className="box-row">
               <div className="input">
                 <label htmlFor="name">
