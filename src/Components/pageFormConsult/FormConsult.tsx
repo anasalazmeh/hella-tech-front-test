@@ -47,7 +47,7 @@ const FormConsult = () => {
       .min(6, { message: t("errors_phone_message1") })
       .max(50, { message: t("errors_phone_message2") }),
     address: z.string().max(260, { message: t("errors_address_message1") }),
-    why: z
+    note: z
       .string()
       .min(4, { message: t("errors_consultation_subject_message1") })
       .max(260, { message: t("errors_consultation_subject_message2") }),
@@ -67,7 +67,7 @@ const FormConsult = () => {
       company: "",
       phone: "",
       address: "",
-      why: "",
+      note: "",
     },
   });
   const [submitLoading, setSubmitLoading] = useState(false);
@@ -264,22 +264,22 @@ const FormConsult = () => {
             </div>
             <div className="box-row">
               <div className="input">
-                <label htmlFor="why">
+                <label htmlFor="note">
                   <div className="box">{t("consultation_subject")} *</div>
                 </label>
                 <input
-                  {...register("why")}
+                  {...register("note")}
                   type="text"
-                  name="why"
-                  id="why"
+                  name="note"
+                  id="note"
                   placeholder={t("consultation_subject_placeholder")}
                   className={`${
-                    errors.why
+                    errors.note
                       ? "border-2 border-solid border-red-500"
                       : "border-2 border-solid focus:border-[#34C87C]"
                   }`}
                 />
-                {errors.why && (
+                {errors.note && (
                   <p className="text-red-500">
                     {t("errors_consultation_subject_message")}
                   </p>
