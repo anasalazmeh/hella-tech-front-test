@@ -18,7 +18,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 
 const FormConsult = () => {
-  const [params,setparams] = useSearchParams();
+  const [params, setparams] = useSearchParams();
   const { t } = useTranslation();
   const [open, setOpen] = React.useState(false);
   const navigate = useNavigate();
@@ -73,13 +73,14 @@ const FormConsult = () => {
   const [submitLoading, setSubmitLoading] = useState(false);
 
   const [openError, setOpenError] = useState(false);
-  const consultant_id=params.get('id')
+  const consultant_id = params.get("id");
   const onSubmit = async (data: any) => {
     try {
       setSubmitLoading(true);
       console.log("data", data);
       await http.post("/consultations", {
         ...data,
+        lang: localStorage.getItem("i18nextLng") === "ar" ? "ar" : "en",
         order: 1,
         status: 1,
         consultant_id,
