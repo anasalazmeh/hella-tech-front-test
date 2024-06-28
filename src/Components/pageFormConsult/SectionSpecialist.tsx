@@ -1,33 +1,20 @@
-import { useTranslation } from "react-i18next";
+import { useTranslation  } from "react-i18next";
+import i18next from 'i18next';
 import "./SectionSpecialist.css";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import http from "../../api/axios";
-// interface DataType {
-//   translations:  {
-//     name: {
-//       [key:string]:"en"| "ar"
-//     },
-//     specialization: {
-//       [key:string]:"en"| "ar"
-//     },
-//     description:{
-//       [key:string]:"en"| "ar"
-//     };
-//   },
-//   image: string;
-// }
+import { DataConsultants } from "../../typeData";
 const SectionSpecialist = () => {
   const { t, i18n, } = useTranslation();
   const { consultant_id } = useParams();
-  const [data, setdata] = useState<any>();
+  const [data, setdata] = useState<DataConsultants>();
+
   useEffect(() => {
     const GetData = async () => {
-      await http
-        .get(
-          `/consultants/${consultant_id}`
-        )
-        .then((data) => setdata(data.data.data));
+        const res = await http.get(`/consultants/${consultant_id}`);
+        setdata(res.data.data)
+        console.log(res.data.data)
     };
     GetData()
   

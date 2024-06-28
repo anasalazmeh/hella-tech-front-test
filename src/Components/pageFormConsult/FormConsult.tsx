@@ -15,10 +15,10 @@ import {
 } from "@mui/material";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 
 const FormConsult = () => {
-  const { consultant_id } = useParams();
+  const [params,setparams] = useSearchParams();
   const { t } = useTranslation();
   const [open, setOpen] = React.useState(false);
   const navigate = useNavigate();
@@ -73,7 +73,7 @@ const FormConsult = () => {
   const [submitLoading, setSubmitLoading] = useState(false);
 
   const [openError, setOpenError] = useState(false);
-
+  const consultant_id=params.get('id')
   const onSubmit = async (data: any) => {
     try {
       setSubmitLoading(true);
@@ -83,7 +83,7 @@ const FormConsult = () => {
         lang: localStorage.getItem("i18nextLng") === "ar" ? "ar" : "en",
         order: 1,
         status: 1,
-        consultant_id,
+        consultant_id:"1",
       });
       reset();
       handleClickOpen();
@@ -97,8 +97,8 @@ const FormConsult = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="consult my-10">
-        <div className="contact-by">
-          <div className="address">
+        <div className="contact-by w-full my-5 text-black py-2 px-10 md:py-0 md:px-0">
+          <div className="address text-[19px] md:text-[32px] font-500 text-black">
             <p>{t("contact_by")}</p>
           </div>
           <div className="grid">
@@ -152,8 +152,8 @@ const FormConsult = () => {
             </div>
           </div>
         </div>
-        <div className="your-info">
-          <div className="address">
+        <div className="your-info w-full my-5 text-black py-2 px-10 md:py-0 md:px-0">
+          <div className="address text-[19px] md:text-[32px] font-500 text-black">
             <p>{t("your_info")}</p>
           </div>
           <div className="section">

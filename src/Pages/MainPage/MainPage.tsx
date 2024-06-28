@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import AboutUs from "../../Components/AboutUs/AboutUs";
 import Consulting from "../../Components/Consulting/Consulting";
@@ -12,14 +12,23 @@ import Testimonial from "../../Components/Testimonial/Testimonial";
 import WhatsappIcon from "../../Components/WhatsappIcon/WhatsappIcon";
 import HelaVideo from "../HelaVideo/HelaVideo";
 import Consult from "../../Components/Consult/Consult";
+import http from "../../api/axios";
+import { DataConsultants } from "../../typeData";
 const MainPage = () => {
   const { t, i18n } = useTranslation();
+  const [data,setData]=useState<DataConsultants[]>()
   useEffect(() => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
-  });
+    const fatchData= async ()=>{
+      const res = await http("/consultants");
+      setData(res.data.data)
+      console.log(data)
+    }
+    fatchData()
+  },[]);
   const sectionRefs = [
     useRef(null),
     useRef(null),
@@ -60,7 +69,7 @@ const MainPage = () => {
           <Testimonial />
         </section>
         <section>
-          <Consult />
+          {data && <Consult data={data} />}
         </section>
         <section>
           <OurPortfolio />

@@ -13,9 +13,8 @@ const ConsultNow = () => {
   });
   return (
     <>
-      
-     <NavBar sectionRefs={null} isConsultNow/>
-     <WhatsappIcon /> 
+      <NavBar sectionRefs={null} isConsultNow />
+      <WhatsappIcon />
       <div className="w-full flex justify-center">
         <div className="w-full xl:w-[1225px] lg:w-full">
           <SectionSpecialist />

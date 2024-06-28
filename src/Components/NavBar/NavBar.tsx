@@ -11,6 +11,10 @@ import SideBar from "./components/SideBar";
 import LangMenu from "./components/LangMenu";
 import { DirectionResolver } from "../../utils/hooks";
 import { useNavigate } from "react-router-dom";
+import logo from './image/HelaLogo.png'
+import languagesSmButton from './image/languagesSmButton.svg'
+import sideBarSmButton from './image/sideBarSmButton.png'
+import langugesButon from './image/langugesButon.svg'
 interface IProps {
   sectionRefs: MutableRefObject<any>[] | null;
   isContactUs?: boolean;
@@ -68,7 +72,7 @@ const NavBar = ({
           className={`${DirectionResolver() !== "ltr" ? "rotate -180" : ""}`}
         >
           <img
-            src={process.env.PUBLIC_URL + "assets/sideBarSmButton.png"}
+            src={sideBarSmButton}
             alt=""
           />
         </IconButton>
@@ -90,7 +94,7 @@ const NavBar = ({
               >
                 <div className="relative">
                   <img
-                    src={process.env.PUBLIC_URL + "assets/langugesButon.svg"}
+                    src={langugesButon}
                     className="w-16 shrink-0 "
                   />
                   {menuOn && <LangMenu setMenuOn={setMenuOn} />}
@@ -222,7 +226,7 @@ const NavBar = ({
               <img
                 onClick={() => navigate("/")}
                 className="cursor-pointer ms-4 lg:ms-0"
-                src={process.env.PUBLIC_URL + "HelaLogo.png"}
+                src={logo}
                 alt=""
               />
             </div>
@@ -240,7 +244,7 @@ const NavBar = ({
           className={`${DirectionResolver() !== "ltr" ? "rotate -180" : ""}`}
         >
           <img
-            src={process.env.PUBLIC_URL + "assets/languagesSmButton.svg"}
+            src={languagesSmButton}
             alt=""
           />
         </IconButton>
