@@ -15,10 +15,9 @@ import {
 } from "@mui/material";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useNavigate, useParams, useSearchParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const FormConsult = () => {
-  const [params, setparams] = useSearchParams();
   const { t } = useTranslation();
   const [open, setOpen] = React.useState(false);
   const navigate = useNavigate();
@@ -73,7 +72,7 @@ const FormConsult = () => {
   const [submitLoading, setSubmitLoading] = useState(false);
 
   const [openError, setOpenError] = useState(false);
-  const consultant_id = params.get("id");
+  const { consultant_id } = useParams();
   const onSubmit = async (data: any) => {
     try {
       setSubmitLoading(true);
