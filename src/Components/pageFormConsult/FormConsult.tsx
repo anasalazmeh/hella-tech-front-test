@@ -151,7 +151,7 @@ const FormConsult = () => {
             </div>
           </div>
         </div>
-        <div className="your-info w-full my-2 text-black py-2 px-10 md:py-0 md:px-0">
+        <div className="your-info w-full text-black py-2 px-10 md:py-0 md:px-0">
           <div className="address text-[19px] md:text-[32px] font-500 text-black">
             <p>{t("your_info")}</p>
           </div>
@@ -159,7 +159,7 @@ const FormConsult = () => {
             <div className="box-row">
               <div className="input">
                 <label htmlFor="name">
-                  <div className="box">{t("full_name")} *</div>
+                  <div className="box text-black">{t("full_name")} *</div>
                 </label>
                 <input
                   {...register("name")}
@@ -179,7 +179,7 @@ const FormConsult = () => {
               </div>
               <div className="input">
                 <label htmlFor="email">
-                  <div className="box">{t("your_email")} *</div>
+                  <div className="box text-black">{t("your_email")} *</div>
                 </label>
                 <input
                   {...register("email")}
@@ -201,7 +201,7 @@ const FormConsult = () => {
             <div className="box-row">
               <div className="input">
                 <label htmlFor="phone">
-                  <div className="box">{t("your_phone")} *</div>
+                  <div className="box text-black">{t("your_phone")} *</div>
                 </label>
                 <input
                   {...register("phone")}
@@ -221,7 +221,7 @@ const FormConsult = () => {
               </div>
               <div className="input">
                 <label htmlFor="company ">
-                  <div className="box">{t("company")}</div>
+                  <div className="text-black">{t("company")}</div>
                 </label>
                 <input
                   {...register("company")}
@@ -243,7 +243,7 @@ const FormConsult = () => {
             <div className="box-row">
               <div className="input">
                 <label htmlFor="address">
-                  <div className="box">{t("address")}</div>
+                  <div className="box text-black">{t("address")}</div>
                 </label>
                 <input
                   {...register("address")}
@@ -265,7 +265,7 @@ const FormConsult = () => {
             <div className="box-row">
               <div className="input">
                 <label htmlFor="note">
-                  <div className="box">{t("consultation_subject")} *</div>
+                  <div className="box text-black">{t("consultation_subject")} *</div>
                 </label>
                 <input
                   {...register("note")}
