@@ -99,7 +99,7 @@ const ConsultForm = () => {
           <div className="address text-[19px] md:text-[32px] font-500 text-black">
             <p>{t("contact_by")}</p>
           </div>
-          <div className="grid px-3 pt-4">
+          <div className="grid px-3 md:px-[22px] pt-4">
             <div className="radio">
               <input
                 {...register("communicate_method")}
