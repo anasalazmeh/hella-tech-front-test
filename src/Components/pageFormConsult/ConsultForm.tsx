@@ -17,7 +17,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useNavigate, useParams } from "react-router-dom";
 
-const FormConsult = () => {
+const ConsultForm = () => {
   const { t } = useTranslation();
   const [open, setOpen] = React.useState(false);
   const navigate = useNavigate();
@@ -76,7 +76,6 @@ const FormConsult = () => {
   const onSubmit = async (data: any) => {
     try {
       setSubmitLoading(true);
-      console.log("data", data);
       await http.post("/consultations", {
         ...data,
         lang: localStorage.getItem("i18nextLng") === "ar" ? "ar" : "en",
@@ -100,7 +99,7 @@ const FormConsult = () => {
           <div className="address text-[19px] md:text-[32px] font-500 text-black">
             <p>{t("contact_by")}</p>
           </div>
-          <div className="grid">
+          <div className="grid px-3 pt-4">
             <div className="radio">
               <input
                 {...register("communicate_method")}
@@ -155,7 +154,7 @@ const FormConsult = () => {
           <div className="address text-[19px] md:text-[32px] font-500 text-black">
             <p>{t("your_info")}</p>
           </div>
-          <div className="section text-black">
+          <div className="section text-black px-3">
             <div className="box-row">
               <div className="input">
                 <label htmlFor="name">
@@ -174,7 +173,7 @@ const FormConsult = () => {
                   }`}
                 />
                 {errors.name && (
-                  <p className="text-red-500">{t("errors_name_message")}</p>
+                  <p className="text-red-500">{errors.name.message}</p>
                 )}
               </div>
               <div className="input">
@@ -194,7 +193,7 @@ const FormConsult = () => {
                   }`}
                 />
                 {errors.email && (
-                  <p className="text-red-500">{t("errors_email_message")}</p>
+                  <p className="text-red-500">{errors.email.message}</p>
                 )}
               </div>
             </div>
@@ -216,7 +215,7 @@ const FormConsult = () => {
                   }`}
                 />
                 {errors.phone && (
-                  <p className="text-red-500">{t("errors_phone_message")}</p>
+                  <p className="text-red-500">{errors.phone.message}</p>
                 )}
               </div>
               <div className="input">
@@ -236,7 +235,7 @@ const FormConsult = () => {
                   }`}
                 />
                 {errors.company && (
-                  <p className="text-red-500">{t("errors_company_message")}</p>
+                  <p className="text-red-500">{errors.company.message}</p>
                 )}
               </div>
             </div>
@@ -258,7 +257,7 @@ const FormConsult = () => {
                   }`}
                 />
                 {errors.address && (
-                  <p className="text-red-500">{t("errors_address_message")}</p>
+                  <p className="text-red-500">{errors.address.message}</p>
                 )}
               </div>
             </div>
@@ -281,7 +280,7 @@ const FormConsult = () => {
                 />
                 {errors.note && (
                   <p className="text-red-500">
-                    {t("errors_consultation_subject_message")}
+                    {errors.note.message}
                   </p>
                 )}
               </div>
@@ -388,4 +387,4 @@ const FormConsult = () => {
     </form>
   );
 };
-export default FormConsult;
+export default ConsultForm;

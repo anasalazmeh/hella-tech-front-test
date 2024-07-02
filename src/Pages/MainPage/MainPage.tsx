@@ -66,13 +66,13 @@ const MainPage = () => {
           <OurTeam />
         </section>
         <section>
-          <Testimonial />
-        </section>
-        <section>
           {data && <Consult data={data} />}
         </section>
         <section>
           <OurPortfolio />
+        </section>
+        <section>
+          <Testimonial/>
         </section>
       </div>
       {/* The rest of the page */}

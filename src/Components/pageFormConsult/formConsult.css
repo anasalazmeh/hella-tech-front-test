@@ -3,7 +3,6 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 30px;
-  padding:20px 8px;
 }
 
 @media (max-width:767px) {
@@ -68,6 +67,11 @@
   width: 100%;
   color: black;
   margin: 13px 10px;
+}
+@media (max-width:767px) {
+  .consult .your-info .section .box-row .input{
+    margin: 13px 0px;
+  }
 }
 .consult .your-info .section .box-row .input label{
   font-size: 22px;

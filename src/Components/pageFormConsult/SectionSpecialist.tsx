@@ -1,6 +1,5 @@
 import { useTranslation } from "react-i18next";
 import i18next from "i18next";
-import "./SectionSpecialist.css";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import http from "../../api/axios";
@@ -14,15 +13,13 @@ const SectionSpecialist = () => {
     const GetData = async () => {
       const res = await http.get(`/consultants/${consultant_id}`);
       setdata(res.data.data);
-      console.log(res.data.data);
     };
     GetData();
   }, []);
-  console.log(data);
   return (
     <div className="">
-      <div className="flex">
-        <img src={data?.image} alt="" className="w-[40%] h-auto" />
+      <div className="flex mt-3">
+        <img src={data?.image} alt="" className="w-[40%] h-auto " />
         <div className="w-[60%] h-auto bg-[#F4F4F4] p-2 md:p-5">
           <div
             className={` flex flex-col justify-between p-1 md:p-2  ${
@@ -38,7 +35,7 @@ const SectionSpecialist = () => {
               {data?.translations.specialization[i18n.language]}
             </p>
           </div>
-          <p className="leading-[12.7px] text-[9px] md:leading-[47.04px] my-1 md:my-5 md:mt-9  md:text-[32px] font-[400] ">
+          <p className="leading-[12.7px] sm:text-[14px] sm:leading-[19.04px] text-[9px] md:leading-[47.04px] my-1 md:my-5 md:mt-9  md:text-[32px] font-[400] h-[80%] md:h-auto flex justify-center items-center ">
             {data?.translations.description[i18n.language]}
           </p>
         </div>

@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import FormConsult from "../../Components/pageFormConsult/FormConsult";
+import ConsultForm from "../../Components/pageFormConsult/ConsultForm";
 import SectionSpecialist from "../../Components/pageFormConsult/SectionSpecialist";
 import WhatsappIcon from "../../Components/WhatsappIcon/WhatsappIcon";
 import NavBar from "../../Components/NavBar/NavBar";
@@ -18,7 +18,7 @@ const ConsultNow = () => {
       <div className="w-full flex justify-center">
         <div className="w-full xl:w-[1225px] lg:w-full">
           <SectionSpecialist />
-          <FormConsult />
+          <ConsultForm />
         </div>
       </div>
     </>
