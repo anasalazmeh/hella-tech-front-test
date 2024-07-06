@@ -15,7 +15,6 @@ import Consult from "../../Components/Consult/Consult";
 import http from "../../api/axios";
 import { DataConsultants } from "../../typeData";
 const MainPage = () => {
-  const { t, i18n } = useTranslation();
   const [data,setData]=useState<DataConsultants[]>()
   useEffect(() => {
     window.scrollTo({
@@ -65,7 +64,7 @@ const MainPage = () => {
         <section ref={sectionRefs[5]}>
           <OurTeam />
         </section>
-        <section>
+        <section ref={sectionRefs[6]}>
           {data && <Consult data={data} />}
         </section>
         <section>

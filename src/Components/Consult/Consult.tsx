@@ -8,12 +8,11 @@ import { DataConsultants } from "../../typeData";
 
 const Consult = ({data}:{data:DataConsultants[]}) => {
   const { t, i18n } = useTranslation();
-
-
+  console.log(data)
   const [currentSlide, setCurrentSlide] = useState<number>(0);
-  const [currentSlideMobile, setCurrentSlideMobile] = useState<number>(0);
+  const [mode, setMode] = useState<number>(1);
   const [number, setnumber] = useState<number>(1);
-  const moveSlides = (n: number) => {
+  const moveSlidesWidows = (n: number) => {
     let newSlide = currentSlide + n;
     if (newSlide >= data.length - 2) {
       newSlide = 0;
@@ -25,42 +24,62 @@ const Consult = ({data}:{data:DataConsultants[]}) => {
       }
     }
     setCurrentSlide(newSlide);
+    console.log("in window"+newSlide)
   };
+
   const moveSlidesMobile = (n: number) => {
-    let newSlide = currentSlideMobile + n;
+    let newSlide = currentSlide + n;
+    console.log("in mobile"+newSlide)
     if (newSlide >= data.length) {
       newSlide = 0;
     } else if (newSlide < 0) {
       if (newSlide === 0) {
         newSlide = 0;
       } else {
-        console.log(data.length)
+  
         newSlide = data.length -1 ;
       }
     }
-    setCurrentSlideMobile(newSlide);
+    setCurrentSlide(newSlide);
   };
+
+  const responsive=(id:number)=>{
+    let isBigScreen = window.innerWidth > 760;
+    if (isBigScreen) {
+      moveSlidesWidows(id);
+      setMode(3)
+    }
+    else{
+      moveSlidesMobile(id);
+      setMode(1)
+    }
+  }
+
   const handleScrollRight = () => {
-    moveSlides(1);
-    moveSlidesMobile(1);
+    // moveSlidesWidows(1);
+    // moveSlidesMobile(1);
+    responsive(1)
   };
 
   const handleScrollLeft = () => {
-    moveSlides(-1);
-    moveSlidesMobile(-1);
+    // moveSlidesWidows(-1);
+    // moveSlidesMobile(-1);
+    responsive(-1)
   };
 
   useEffect(() => {
     if (number > 0) {
       const interval = setInterval(() => {
-        moveSlides(1);
-        moveSlidesMobile(1);
+        responsive(1)
       }, 3000); // Change slide every 3 seconds
       return () => clearInterval(interval); // Cleanup interval on unmount
     }
-  }, [currentSlide, currentSlideMobile]);
+  }, [currentSlide]);
+  console.log(`translateX(${i18n.language === "ar" ? "+" : "-"}${
+                  (currentSlide * 100)/ mode
+                }${mode} %)`)
   return (
-    <div className="w-full flex justify-center">
+    <div className="w-full flex justify-center" id="consult" >
       <div className="w-full xl:w-[1225px] lg:w-full">
         <div className="flex flex-col justify-center gap-2 lg:flex-row lg:justify-between w-full mb-3 lg:gap-4 items-start">
           <div className="my-5 mx-2" >
@@ -107,7 +126,7 @@ const Consult = ({data}:{data:DataConsultants[]}) => {
               className="slides"
               style={{
                 transform: `translateX(${i18n.language === "ar" ? "+" : "-"}${
-                  +(currentSlide * 100) / 3
+                  +(currentSlide * 100)/mode 
                 }%)`,
               }}
             >
@@ -121,7 +140,7 @@ const Consult = ({data}:{data:DataConsultants[]}) => {
             </div>
           </div>
         </div>
-        <div className="slider2">
+        {/* <div className="slider2">
           <div
             className="slides2"
             style={{
@@ -138,7 +157,7 @@ const Consult = ({data}:{data:DataConsultants[]}) => {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

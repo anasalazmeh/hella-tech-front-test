@@ -20,7 +20,7 @@ const Routing = () => {
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/refund-policy" element={<RefundPolicy />} />
         <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
-        <Route path="/consult-now/:consultant_id" element={<ConsultNow />} />
+        <Route path="/consult-now/:slug" element={<ConsultNow />} />
       </Routes>
       <Footer />
     </div>

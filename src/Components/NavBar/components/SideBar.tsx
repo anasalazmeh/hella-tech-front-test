@@ -155,7 +155,7 @@ const SideBar = ({
           {t("contact_us")}
         </div>
         <a
-          href="#consulting"
+          href="#consult"
           onClick={() => {
             if (isVideo || isContactUs || isConsultNow) navigate("/");
             setDrawer(undefined);

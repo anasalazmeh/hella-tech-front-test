@@ -6,12 +6,12 @@ import http from "../../api/axios";
 import { DataConsultants } from "../../typeData";
 const SectionSpecialist = () => {
   const { t, i18n } = useTranslation();
-  const { consultant_id } = useParams();
+  const { slug } = useParams();
   const [data, setdata] = useState<DataConsultants>();
 
   useEffect(() => {
     const GetData = async () => {
-      const res = await http.get(`/consultants/${consultant_id}`);
+      const res = await http.get(`/consultant/${slug}`);
       setdata(res.data.data);
     };
     GetData();

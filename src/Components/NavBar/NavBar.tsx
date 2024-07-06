@@ -1,20 +1,19 @@
 /* eslint-disable jsx-a11y/alt-text */
-import { AppBar, IconButton, Drawer } from "@mui/material";
-import { t } from "i18next";
-import React, { useEffect, useState, MutableRefObject } from "react";
-import NavTextButton from "../NavTextButton/NavTextButton";
+import { AppBar, Drawer, IconButton } from "@mui/material";
+import { MutableRefObject, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import NavTextButton from "../NavTextButton/NavTextButton";
 
+import { useNavigate } from "react-router-dom";
 import useScrollSpy from "react-use-scrollspy";
+import { DirectionResolver } from "../../utils/hooks";
+import LangMenu from "./components/LangMenu";
 import LanguagesSlider from "./components/LanguagesSlider";
 import SideBar from "./components/SideBar";
-import LangMenu from "./components/LangMenu";
-import { DirectionResolver } from "../../utils/hooks";
-import { useNavigate } from "react-router-dom";
-import logo from './image/HelaLogo.png'
-import languagesSmButton from './image/languagesSmButton.svg'
-import sideBarSmButton from './image/sideBarSmButton.png'
-import langugesButon from './image/langugesButon.svg'
+import logo from "./image/HelaLogo.png";
+import languagesSmButton from "./image/languagesSmButton.svg";
+import langugesButon from "./image/langugesButon.svg";
+import sideBarSmButton from "./image/sideBarSmButton.png";
 interface IProps {
   sectionRefs: MutableRefObject<any>[] | null;
   isContactUs?: boolean;
@@ -36,7 +35,7 @@ const NavBar = ({
     offsetPx: -80,
   });
   const navigate = useNavigate();
-
+ console.log(activeSection)
   const handleResize = () => {
     let isBigScreen = window.innerWidth > 760;
     if (isBigScreen) {
@@ -71,10 +70,7 @@ const NavBar = ({
           aria-label="menu"
           className={`${DirectionResolver() !== "ltr" ? "rotate -180" : ""}`}
         >
-          <img
-            src={sideBarSmButton}
-            alt=""
-          />
+          <img src={sideBarSmButton} alt="" />
         </IconButton>
         <div className="w-full flex items-center justify-center lg:justify-center">
           <div className="xl:w-[1225px] lg:w-full   flex  relative justify-between items-center">
@@ -93,20 +89,17 @@ const NavBar = ({
                 onClick={() => setMenuOn(!menuOn)}
               >
                 <div className="relative">
-                  <img
-                    src={langugesButon}
-                    className="w-16 shrink-0 "
-                  />
+                  <img src={langugesButon} className="w-16 shrink-0 " />
                   {menuOn && <LangMenu setMenuOn={setMenuOn} />}
                 </div>
               </IconButton>
               <a
-                href="#consulting"
+                href="#consult"
                 onClick={() => {
                   if (isVideo || isContactUs || isConsultNow) navigate("/");
                 }}
                 className={`${
-                  activeSection === 4 ? "font-extrabold shadow-md" : ""
+                  activeSection === 6 ? "font-extrabold shadow-md" : ""
                 }`}
               >
                 <NavTextButton
@@ -114,7 +107,7 @@ const NavBar = ({
                   style={{ fontWeight: "bold !important" }}
                   sx={{
                     border:
-                      activeSection === 4
+                      activeSection === 6
                         ? "2px solid #28ea86"
                         : "2px solid #34C87C",
                     py: "8px",
@@ -236,17 +229,13 @@ const NavBar = ({
           onClick={() => setDrawer("right")}
           sx={{
             display: { xs: "flex", md: "flex", lg: "none" },
-            // display: "none",
           }}
           edge="start"
           color="inherit"
           aria-label="menu"
           className={`${DirectionResolver() !== "ltr" ? "rotate -180" : ""}`}
         >
-          <img
-            src={languagesSmButton}
-            alt=""
-          />
+          <img src={languagesSmButton} alt="" />
         </IconButton>
       </div>
       <Drawer

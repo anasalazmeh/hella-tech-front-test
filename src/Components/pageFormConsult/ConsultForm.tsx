@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import "./formConsult.css";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import http from "../../api/axios";
 import { Close } from "@mui/icons-material";
@@ -16,6 +16,7 @@ import {
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useNavigate, useParams } from "react-router-dom";
+import { DataConsultants } from "../../typeData";
 
 const ConsultForm = () => {
   const { t } = useTranslation();
@@ -70,18 +71,26 @@ const ConsultForm = () => {
     },
   });
   const [submitLoading, setSubmitLoading] = useState(false);
-
   const [openError, setOpenError] = useState(false);
-  const { consultant_id } = useParams();
+  const [data, setdata] = useState<DataConsultants>();
+
+  const { slug } = useParams();
+  useEffect(() => {
+    const GetData = async () => {
+      const res = await http.get(`/consultant/${slug}`);
+      setdata(res.data.data);
+    };
+    GetData();
+  }, []);
   const onSubmit = async (data: any) => {
     try {
       setSubmitLoading(true);
       await http.post("/consultations", {
         ...data,
-        lang: localStorage.getItem("i18nextLng") === "ar" ? "ar" : "en",
+        lang: localStorage.getItem("i18nextLng"),
         order: 1,
         status: 1,
-        consultant_id,
+        // consultant_id:data?.id,
       });
       reset();
       handleClickOpen();
