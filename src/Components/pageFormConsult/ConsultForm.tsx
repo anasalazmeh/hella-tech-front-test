@@ -90,7 +90,7 @@ const ConsultForm = () => {
         lang: localStorage.getItem("i18nextLng"),
         order: 1,
         status: 1,
-        // consultant_id:data?.id,
+        consultant_id:data?.id,
       });
       reset();
       handleClickOpen();
