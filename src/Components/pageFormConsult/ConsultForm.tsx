@@ -72,7 +72,7 @@ const ConsultForm = () => {
   });
   const [submitLoading, setSubmitLoading] = useState(false);
   const [openError, setOpenError] = useState(false);
-  const [data, setdata] = useState<DataConsultants>();
+  const [Data, setdata] = useState<DataConsultants>();
 
   const { slug } = useParams();
   useEffect(() => {
@@ -90,7 +90,7 @@ const ConsultForm = () => {
         lang: localStorage.getItem("i18nextLng"),
         order: 1,
         status: 1,
-        consultant_id:data?.id,
+        consultant_id:Data?.id,
       });
       reset();
       handleClickOpen();
