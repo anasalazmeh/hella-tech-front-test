@@ -118,7 +118,7 @@ const ConsultForm = () => {
                 id="email"
               />
               <label htmlFor="email">
-                <div className="box">EMAIL</div>
+                <div className="box">{t("email")}</div>
               </label>
             </div>
             <div className="radio">
@@ -130,7 +130,7 @@ const ConsultForm = () => {
                 id="video-call"
               />
               <label htmlFor="video-call">
-                <div className="box">VIDEO CALL</div>
+                <div className="box">{t("video_call")}</div>
               </label>
             </div>
             <div className="radio">
@@ -142,7 +142,7 @@ const ConsultForm = () => {
                 id="call"
               />
               <label htmlFor="call">
-                <div className="box">CALL</div>
+                <div className="box">{t("call")}</div>
               </label>
             </div>
             <div className="radio">
@@ -154,7 +154,7 @@ const ConsultForm = () => {
                 id="whatsapp"
               />
               <label htmlFor="whatsapp">
-                <div className="box">WHATSAPP</div>
+                <div className="box">{t("whatsapp")}</div>
               </label>
             </div>
           </div>
