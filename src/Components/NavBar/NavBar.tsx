@@ -35,7 +35,6 @@ const NavBar = ({
     offsetPx: -80,
   });
   const navigate = useNavigate();
- console.log(activeSection)
   const handleResize = () => {
     let isBigScreen = window.innerWidth > 760;
     if (isBigScreen) {

@@ -24,7 +24,6 @@ const MainPage = () => {
     const fatchData= async ()=>{
       const res = await http("/consultants");
       setData(res.data.data)
-      console.log(data)
     }
     fatchData()
   },[]);

@@ -13,7 +13,7 @@ const BoxSlider = ({ item }: Props) => {
       <img src={item.image} alt="" className="w-full h-80 bg-cover" />
       <div className=" flex justify-center items-center flex-col bg-[#0D1C22]">
         <p className=" text-[#28ea86] text-[22px] m-2 mb-0 font-500">{item.translations.name[i18n.language]}</p>
-        <p className=" text-white">{item.translations.specialization[i18n.language]}</p>
+        <p className=" text-white text-center">{item.translations.specialization[i18n.language]}</p>
         <span className="hr w-1/2 max-w-[80px] border-[2.5px] border-solid border-[#28ea86] my-2"></span>
         <button
           onClick={() => navigate(`consult-now/${item.translations.slug.en}`)}
