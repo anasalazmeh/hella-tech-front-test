@@ -17,7 +17,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useNavigate, useParams } from "react-router-dom";
 import { DataConsultants } from "../../typeData";
-
+import PhoneInput from 'react-phone-input-2'
 const ConsultForm = () => {
   const { t } = useTranslation();
   const [open, setOpen] = React.useState(false);
@@ -101,6 +101,16 @@ const ConsultForm = () => {
       setSubmitLoading(false);
     }
   };
+  const [PhoneNumber,setPhoneNumber]=useState("")
+  const [valid,setvaild]=useState(true)
+  const handechange=(value:any)=>{
+    setPhoneNumber(value)
+    setvaild(validatePhoneNumber(value))
+  }
+  const validatePhoneNumber=(phoneNumber:any)=>{
+    const phoneNumberPattern=/^\d{10}$/;
+    return phoneNumberPattern.test(phoneNumber)
+  }
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="consult my-5">
@@ -211,20 +221,18 @@ const ConsultForm = () => {
                 <label htmlFor="phone">
                   <div className="box text-black">{t("your_phone")} *</div>
                 </label>
-                <input
+                <PhoneInput 
                   {...register("phone")}
-                  type="text"
-                  name="phone"
-                  id="phone"
+                  country={"us"}
+                  value={PhoneNumber}
+                  onChange={handechange}
+                  inputProps={{
+                    require:true
+                  }}
                   placeholder="+0000000000"
-                  className={`${
-                    errors.phone
-                      ? "border-2 border-solid border-red-500"
-                      : "border-2 border-solid focus:border-[#34C87C]"
-                  }`}
                 />
-                {errors.phone && (
-                  <p className="text-red-500">{errors.phone.message}</p>
+                { ! valid && (
+                  <p className="text-red-500">Please enter a valid 10-digit phone number .</p>
                 )}
               </div>
               <div className="input">

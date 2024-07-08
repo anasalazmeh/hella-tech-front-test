@@ -12,7 +12,7 @@
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 10px;
+    gap: 30px;
   }
 }
 .consult .radio div.box{
@@ -28,6 +28,17 @@
   align-items: center;
   transition: all 0.3s;
   cursor: pointer;
+}
+@media (min-width:768px) and (max-width:959px) {
+  .consult .contact-by .grid{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 150px 150px 150px 150px;
+    gap: 30px;
+  }
+  .consult .radio div.box{
+    font-size: 20px;
+  }
 }
 @media (max-width:767px) {
   .consult .radio div.box{
