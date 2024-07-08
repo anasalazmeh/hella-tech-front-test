@@ -69,7 +69,7 @@ const ConsultForm = () => {
   } = useForm<FormData>({
     resolver: zodResolver(schema),
     defaultValues: {
-      communicate_method: "whatsapp",
+      communicate_method: "",
       name: "",
       email: "",
       company: "",
@@ -89,15 +89,17 @@ const ConsultForm = () => {
       setdata(res.data.data);
     };
     GetData();
-  }, []);
+  }, [slug]);
   const [PhoneNumber, setPhoneNumber] = useState("");
   const [valid, setvaild] = useState(true);
   const onSubmit = async (data: any) => {
     if (valid) {
+
       try {
         setSubmitLoading(true);
         await http.post("/consultations", {
           ...data,
+          phone:formatPhoneNumberIntl(PhoneNumber),
           lang: localStorage.getItem("i18nextLng"),
           order: 1,
           status: 1,
@@ -132,7 +134,6 @@ const ConsultForm = () => {
               <input
                 {...register("communicate_method")}
                 type="radio"
-                name="contact"
                 value="email"
                 id="email"
               />
@@ -141,14 +142,13 @@ const ConsultForm = () => {
               </label>
             </div>
             <div className="radio">
-              <input
+            <input
                 {...register("communicate_method")}
                 type="radio"
-                name="contact"
-                value="video call"
-                id="video-call"
+                value="video_call"
+                id="video_call"
               />
-              <label htmlFor="video-call">
+              <label htmlFor="video_call">
                 <div className="box">{t("video_call")}</div>
               </label>
             </div>
@@ -156,7 +156,6 @@ const ConsultForm = () => {
               <input
                 {...register("communicate_method")}
                 type="radio"
-                name="contact"
                 value="call"
                 id="call"
               />
@@ -168,7 +167,6 @@ const ConsultForm = () => {
               <input
                 {...register("communicate_method")}
                 type="radio"
-                name="contact"
                 value="whatsapp"
                 id="whatsapp"
               />
@@ -232,7 +230,7 @@ const ConsultForm = () => {
                 </label>
                 <PhoneInput
                   {...register("phone")}
-                  labels={i18n.language=="ar" ? ar :en}
+                  labels={i18n.language==="ar" ? ar :en}
                   onChange={handechange}
                   inputProps={{
                     require: true,

@@ -63,7 +63,7 @@ const SectionSpecialist = () => {
               {data?.translations.specialization[i18n.language]}
             </p>
           </div>
-          <p className="leading-[9.7px] px-2 text-[6px] md:leading-[20.04px] xl:leading-[30.04px] md:text-[15px] xl:text-[20px] font-[400] mt-1">
+          <p className="leading-[11.7px] px-2 text-[10px] md:leading-[20.04px] xl:leading-[30.04px] md:text-[15px] xl:text-[20px] font-[400] mt-1">
             {data?.translations.description[i18n.language]}
           </p>
         </div>
