@@ -2,7 +2,7 @@
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 30px;
+  gap: 100px;
 }
 
 @media (max-width:767px) {
@@ -15,7 +15,7 @@
 }
 .consult .radio div.box{
   background-color: white;
-  height:  85.86px; 
+  height:  70.86px; 
   width: 100%;
   font-size: 30px;
   font-weight: 400;
