@@ -24,8 +24,8 @@ import PhoneInput, {
   isPossiblePhoneNumber,
 } from "react-phone-number-input";
 import "react-phone-number-input/style.css";
-import ar from 'react-phone-number-input/locale/ar'
-import en from 'react-phone-number-input/locale/en'
+import ar from 'react-phone-number-input/locale/ar.json'
+import en from 'react-phone-number-input/locale/en.json'
 const ConsultForm = () => {
   const { t,i18n } = useTranslation();
   const [open, setOpen] = React.useState(false);
