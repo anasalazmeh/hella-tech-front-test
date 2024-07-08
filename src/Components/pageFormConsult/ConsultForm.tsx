@@ -232,20 +232,16 @@ const ConsultForm = () => {
                   {...register("phone")}
                   labels={i18n.language==="ar" ? ar :en}
                   onChange={handechange}
+                  
                   inputProps={{
                     require: true,
                   }}
                   className={`${
                     valid === false
                       ? "border-2 border-solid border-red-500 rounded-[10px] px-2"
-                      : "border-2 border-solid  rounded-[10px] px-2 focus"
+                      : "border-2 border-solid  rounded-[10px] focus w-full"
                   }`}
                   placeholder="+9000000000"
-                  inputStyle={{
-                    paddingLeft: "50px",
-                    borderRadius: "10px",
-                    border: "2px solid ",
-                  }}
                 />
                 {!valid && <p className="text-red-500">{t("wrong_number")}</p>}
               </div>

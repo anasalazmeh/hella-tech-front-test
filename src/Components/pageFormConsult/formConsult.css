@@ -151,3 +151,23 @@
 .focus:focus-within{
   border-color:#34C87C ;
 }
+.PhoneInputCountryIcon,
+.PhoneInputCountryIcon--square,
+.PhoneInputCountrySelect,
+.PhoneInputCountrySelectArrow,
+.PhoneInputCountrySelect[disabled],
+.PhoneInputCountrySelect[readonly],
+.PhoneInputCountryIcon--border
+{
+  background-color: transparent;
+  display:none;
+  visibility: hidden;
+  margin: 0;
+}
+.PhoneInputInput{
+  width: 100%;
+  left: 0;
+  flex: 2;
+  margin: 0;
+  padding: 0px 2px !important;
+}
