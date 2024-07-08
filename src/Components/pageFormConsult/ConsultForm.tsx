@@ -118,8 +118,6 @@ const ConsultForm = () => {
     if (value) {
       setvaild(isPossiblePhoneNumber(value!));
       setvaild(isValidPhoneNumber(value!));
-      console.log(isPossiblePhoneNumber(value!))
-      console.log(isValidPhoneNumber(value!))
     }
   };
   return (
