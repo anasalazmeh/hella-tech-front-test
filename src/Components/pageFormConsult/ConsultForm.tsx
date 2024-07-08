@@ -24,8 +24,10 @@ import PhoneInput, {
   isPossiblePhoneNumber,
 } from "react-phone-number-input";
 import "react-phone-number-input/style.css";
+import ar from 'react-phone-number-input/locale/ar'
+import en from 'react-phone-number-input/locale/en'
 const ConsultForm = () => {
-  const { t } = useTranslation();
+  const { t,i18n } = useTranslation();
   const [open, setOpen] = React.useState(false);
   const navigate = useNavigate();
   const handleClickOpen = () => {
@@ -232,7 +234,7 @@ const ConsultForm = () => {
                 </label>
                 <PhoneInput
                   {...register("phone")}
-                  // defaultCountry={"TR"}
+                  labels={i18n.language=="ar" ? ar :en}
                   onChange={handechange}
                   inputProps={{
                     require: true,
