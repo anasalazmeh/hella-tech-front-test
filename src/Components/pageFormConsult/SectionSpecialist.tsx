@@ -46,7 +46,7 @@ const SectionSpecialist = () => {
       </div> */}
       <div className="flex mt-3 bg-[#F4F4F4] rounded-s-xl">
         <div className="w-[40%] flex justify-center items-center">
-          <img src={data?.image} alt="" className="w-full min-h[10px] max-h-[180px] h-full md:max-h-[400px] rounded-s-xl " />
+          <img src={data?.image} alt="" className="w-full min-h[10px] max-h-[180px] h-full md:max-h-[450px] rounded-s-xl " />
         </div>
         <div className="w-[60%] px-3 py-3 xl:px-5 xl:py-5 flex justify-center  flex-col">
           <div
