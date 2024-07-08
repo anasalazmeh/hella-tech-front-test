@@ -106,10 +106,13 @@
   border-radius: 10px;
   outline: none;
   padding: 0 20px;
-  height: 55.96px;
+  height: 50px;
   width: 100%;
   font-size: 15px;
   color:black;
+}
+.consult .your-info .section .box-row .input .input-text{
+  height: 54px;
 }
 @media (max-width:767px) {
   .consult .your-info .section .box-row .input input{
@@ -139,3 +142,7 @@
     width: 200px;
   }
 }
+.PhoneInput:focus-within{
+  border-color:#34C87C ;
+}
+.PhoneInput{}

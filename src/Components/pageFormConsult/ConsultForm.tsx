@@ -17,8 +17,13 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useNavigate, useParams } from "react-router-dom";
 import { DataConsultants } from "../../typeData";
-import PhoneInput from 'react-phone-number-input'
-import 'react-phone-number-input/style.css'
+import PhoneInput, {
+  formatPhoneNumber,
+  formatPhoneNumberIntl,
+  isValidPhoneNumber,
+  isPossiblePhoneNumber,
+} from "react-phone-number-input";
+import "react-phone-number-input/style.css";
 const ConsultForm = () => {
   const { t } = useTranslation();
   const [open, setOpen] = React.useState(false);
@@ -83,39 +88,40 @@ const ConsultForm = () => {
     };
     GetData();
   }, []);
+  const [PhoneNumber, setPhoneNumber] = useState("");
+  const [valid, setvaild] = useState(true);
   const onSubmit = async (data: any) => {
-    try {
-      setSubmitLoading(true);
-      await http.post("/consultations", {
-        ...data,
-        lang: localStorage.getItem("i18nextLng"),
-        order: 1,
-        status: 1,
-        consultant_id:Data?.id,
-      });
-      reset();
-      handleClickOpen();
-      setSubmitLoading(false);
-    } catch (err) {
-      setOpenError(true);
-    } finally {
-      setSubmitLoading(false);
+    if (valid) {
+      try {
+        setSubmitLoading(true);
+        await http.post("/consultations", {
+          ...data,
+          lang: localStorage.getItem("i18nextLng"),
+          order: 1,
+          status: 1,
+          consultant_id: Data?.id,
+        });
+        reset();
+        handleClickOpen();
+        setSubmitLoading(false);
+      } catch (err) {
+        setOpenError(true);
+      } finally {
+        setSubmitLoading(false);
+      }
     }
   };
-  const [PhoneNumber,setPhoneNumber]=useState("")
-  const [valid,setvaild]=useState(true)
-  const handechange=(value:any)=>{
-    setPhoneNumber(value)
-    setvaild(validatePhoneNumber(value))
-  }
-  const validatePhoneNumber=(phoneNumber:any)=>{
-    const phoneNumberPattern=/^\d{15}$/;
-    return phoneNumberPattern.test(phoneNumber)
-  }
+  const handechange = (value: any) => {
+    setPhoneNumber(value);
+    if (value) {
+      setvaild(isPossiblePhoneNumber(value!));
+      setvaild(isValidPhoneNumber(value!));
+    }
+  };
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div className="consult my-5">
-        <div className="contact-by w-full md:my-5 text-black py-2 px-10 md:py-0 md:px-0">
+      <div className="consult">
+        <div className="contact-by w-full md:my-5 text-black py-2 px-8 md:py-0 md:px-0">
           <div className="address text-[19px] md:text-[32px] font-500 text-black">
             <p>{t("contact_by")}</p>
           </div>
@@ -170,7 +176,7 @@ const ConsultForm = () => {
             </div>
           </div>
         </div>
-        <div className="your-info w-full text-black py-2 px-10 md:py-0 md:px-0">
+        <div className="your-info w-full text-black py-2 px-8 md:py-0 md:px-0">
           <div className="address text-[19px] md:text-[32px] font-500 text-black">
             <p>{t("your_info")}</p>
           </div>
@@ -187,9 +193,9 @@ const ConsultForm = () => {
                   id="name"
                   placeholder={t("john_david")}
                   className={`${
-                    errors.name
-                      ? "border-2 border-solid border-red-500"
-                      : "border-2 border-solid focus:border-[#34C87C]"
+                    errors.email
+                      ? "border-2 border-solid border-red-500  input-text"
+                      : "border-2 border-solid focus:border-[#34C87C] input-text"
                   }`}
                 />
                 {errors.name && (
@@ -208,8 +214,8 @@ const ConsultForm = () => {
                   placeholder="example@yourmail.com"
                   className={`${
                     errors.email
-                      ? "border-2 border-solid border-red-500"
-                      : "border-2 border-solid focus:border-[#34C87C]"
+                      ? "border-2 border-solid border-red-500  input-text"
+                      : "border-2 border-solid focus:border-[#34C87C] input-text"
                   }`}
                 />
                 {errors.email && (
@@ -222,22 +228,26 @@ const ConsultForm = () => {
                 <label htmlFor="phone">
                   <div className="box text-black">{t("your_phone")} *</div>
                 </label>
-                <PhoneInput 
+                <PhoneInput
                   {...register("phone")}
-                  inputClass="border-2"
-                  country={"tr"}
-                  value={PhoneNumber}
+                  // defaultCountry={"TR"}
                   onChange={handechange}
                   inputProps={{
-                    require:true
+                    require: true,
                   }}
-                  placeholder="+0000000000"
-
-                  inputStyle={{paddingLeft:"50px",borderRadius:"10px", border:"2px solid "}}
+                  className={`${
+                    !valid
+                      ? "border-2 border-solid border-red-500  rounded-[10px] px-2 PhoneInput"
+                      : "border-2 border-solid rounded-[10px] px-2 PhoneInput"
+                  }`}
+                  placeholder="+9000000000"
+                  inputStyle={{
+                    paddingLeft: "50px",
+                    borderRadius: "10px",
+                    border: "2px solid ",
+                  }}
                 />
-                { ! valid && (
-                  <p className="text-red-500">Please enter a valid 10-digit phone number .</p>
-                )}
+                {!valid && <p className="text-red-500">error is number</p>}
               </div>
               <div className="input">
                 <label htmlFor="company ">
@@ -250,9 +260,9 @@ const ConsultForm = () => {
                   id="company"
                   placeholder={t("company_name")}
                   className={`${
-                    errors.company
-                      ? "border-2 border-solid border-red-500"
-                      : "border-2 border-solid focus:border-[#34C87C]"
+                    errors.email
+                      ? "border-2 border-solid border-red-500  input-text"
+                      : "border-2 border-solid focus:border-[#34C87C] input-text"
                   }`}
                 />
                 {errors.company && (
@@ -272,9 +282,9 @@ const ConsultForm = () => {
                   id="address"
                   placeholder={t("your_address")}
                   className={`${
-                    errors.address
-                      ? "border-2 border-solid border-red-500"
-                      : "border-2 border-solid focus:border-[#34C87C]"
+                    errors.email
+                      ? "border-2 border-solid border-red-500  input-text"
+                      : "border-2 border-solid focus:border-[#34C87C] input-text"
                   }`}
                 />
                 {errors.address && (
@@ -285,7 +295,9 @@ const ConsultForm = () => {
             <div className="box-row">
               <div className="input">
                 <label htmlFor="note">
-                  <div className="box text-black">{t("consultation_subject")} *</div>
+                  <div className="box text-black">
+                    {t("consultation_subject")} *
+                  </div>
                 </label>
                 <input
                   {...register("note")}
@@ -294,15 +306,13 @@ const ConsultForm = () => {
                   id="note"
                   placeholder={t("consultation_subject_placeholder")}
                   className={`${
-                    errors.note
-                      ? "border-2 border-solid border-red-500"
-                      : "border-2 border-solid focus:border-[#34C87C]"
+                    errors.email
+                      ? "border-2 border-solid border-red-500  input-text"
+                      : "border-2 border-solid focus:border-[#34C87C] input-text"
                   }`}
                 />
                 {errors.note && (
-                  <p className="text-red-500">
-                    {errors.note.message}
-                  </p>
+                  <p className="text-red-500">{errors.note.message}</p>
                 )}
               </div>
             </div>
