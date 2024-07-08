@@ -1,8 +1,10 @@
 .consult .contact-by .grid{
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 100px;
+  grid-template-columns: 300px 300px 300px 300px;
+  gap: 40px;
+  justify-content: center;
+  align-items: center;
 }
 
 @media (max-width:767px) {
