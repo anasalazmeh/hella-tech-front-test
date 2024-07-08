@@ -116,12 +116,14 @@ const ConsultForm = () => {
     if (value) {
       setvaild(isPossiblePhoneNumber(value!));
       setvaild(isValidPhoneNumber(value!));
+      console.log(isPossiblePhoneNumber(value!))
+      console.log(isValidPhoneNumber(value!))
     }
   };
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="consult">
-        <div className="contact-by w-full md:my-5 text-black py-2 px-8 md:py-0 md:px-0">
+        <div className="contact-by w-full md:my-5 text-black py-2 px-6 md:py-0 md:px-0">
           <div className="address text-[19px] md:text-[32px] font-500 text-black">
             <p>{t("contact_by")}</p>
           </div>
@@ -176,7 +178,7 @@ const ConsultForm = () => {
             </div>
           </div>
         </div>
-        <div className="your-info w-full text-black py-2 px-8 md:py-0 md:px-0">
+        <div className="your-info w-full text-black py-2 px-6 md:py-0 md:px-0">
           <div className="address text-[19px] md:text-[32px] font-500 text-black">
             <p>{t("your_info")}</p>
           </div>
@@ -236,9 +238,9 @@ const ConsultForm = () => {
                     require: true,
                   }}
                   className={`${
-                    !valid
-                      ? "border-2 border-solid border-red-500  rounded-[10px] px-2 PhoneInput"
-                      : "border-2 border-solid rounded-[10px] px-2 PhoneInput"
+                    valid === false
+                      ? "border-2 border-solid border-red-500 rounded-[10px] px-2"
+                      : "border-2 border-solid  rounded-[10px] px-2 focus"
                   }`}
                   placeholder="+9000000000"
                   inputStyle={{
@@ -247,7 +249,7 @@ const ConsultForm = () => {
                     border: "2px solid ",
                   }}
                 />
-                {!valid && <p className="text-red-500">error is number</p>}
+                {!valid && <p className="text-red-500">{t("wrong_number")}</p>}
               </div>
               <div className="input">
                 <label htmlFor="company ">

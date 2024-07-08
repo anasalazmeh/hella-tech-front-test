@@ -17,7 +17,7 @@ const SectionSpecialist = () => {
     GetData();
   }, [slug]);
   return (
-    <div className=" p-10">
+    <div className=" px-6 pt-2">
       {/* <div className="flex flex-col w-full items-center bg-[#F4F4F4] border border-gray-200 rounded-lg shadow md:flex-row  hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
         <img
           className="w-[400px] rounded-t-lg h-52 md:h-full md:rounded-none md:rounded-s-lg"
@@ -44,11 +44,11 @@ const SectionSpecialist = () => {
           </p>
         </div>
       </div> */}
-      <div className="flex mt-3 bg-[#F4F4F4] rounded-xl">
+      <div className="flex bg-[#F4F4F4] rounded-xl">
         <div className="w-[40%] flex justify-center items-center">
-          <img src={data?.image} alt="" className="w-full min-h[10px] max-h-[180px md:max-h-[470px] rounded-s-xl " />
+          <img src={data?.image} alt="" className="w-full min-h[10px] max-h-[180px md:max-h-[450px] rounded-s-xl " />
         </div>
-        <div className="w-[60%] px-3 py-3 xl:px-5 xl:py-5 flex justify-center  flex-col">
+        <div className="w-[60%] px-3 py-2 xl:px-5 xl:py-2 flex justify-center  flex-col">
           <div
             className={`flex flex-col justify-between p-1 md:p-2  ${
               i18n.language === "ar"
@@ -56,14 +56,14 @@ const SectionSpecialist = () => {
                 : "border-l-[0.87px] md:border-l-[6.67px]"
             } border-solid border-[#0D1C22]`}
           >
-            <h2 className="text-[12px] md:text-[30px] xl:text-[35px] font-700 text-[#34C87C] m-0 p-0">
+            <h2 className="text-[12px] md:text-[25px] xl:text-[35px] font-700 text-[#34C87C] m-0 p-0">
               {t("about")} {data?.translations.name[i18n.language]}
             </h2>
             <p className="text-[8px] md:text-[20px] xl:text-[25px] mb-1 font-bold">
               {data?.translations.specialization[i18n.language]}
             </p>
           </div>
-          <p className="leading-[9.7px] px-2 text-[6px] md:leading-[30.04px] md:text-[18px] xl:text-[20px] font-[400] mt-1">
+          <p className="leading-[9.7px] px-2 text-[6px] md:leading-[20.04px] xl:leading-[30.04px] md:text-[15px] xl:text-[20px] font-[400] mt-1">
             {data?.translations.description[i18n.language]}
           </p>
         </div>

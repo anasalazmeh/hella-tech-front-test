@@ -2,7 +2,7 @@
   width: 100%;
   display: grid;
   grid-template-columns: 200px 200px 200px 200px;
-  gap: 40px;
+  gap: 50px;
   justify-content: center;
   align-items: center;
 }
@@ -12,14 +12,14 @@
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 30px;
+    gap: 10px;
   }
 }
 .consult .radio div.box{
   background-color: white;
-  height:  70.86px; 
+  height:  50.86px; 
   width: 100%;
-  font-size: 30px;
+  font-size: 25px;
   font-weight: 400;
   border: 1px solid var(--main-color);
   border-radius: 10px;
@@ -34,7 +34,7 @@
     width: 100%;
     display: grid;
     grid-template-columns: 150px 150px 150px 150px;
-    gap: 10px;
+    gap: 30px;
   }
   .consult .radio div.box{
     font-size: 20px;
@@ -45,6 +45,11 @@
     font-size: 10px;
     height: 27.93px;
     border-radius: 5px;
+  }
+}
+@media (max-width:341px) {
+  .consult .radio div.box{
+    font-size: 8px;
   }
 }
 .consult .radio{
@@ -142,7 +147,6 @@
     width: 200px;
   }
 }
-.PhoneInput:focus-within{
+.focus:focus-within{
   border-color:#34C87C ;
 }
-.PhoneInput{}

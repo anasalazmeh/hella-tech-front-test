@@ -165,6 +165,7 @@
     "errors_consultation_subject_message1":"يرجى أن يكون موضوع الاستشارة من 4 قيمة على الأقل",
     "errors_consultation_subject_message2":"موضوع الاستشارة طويل جدا",
     "consultation_subject":"موضوع الاستشارة",
-    "consultation_subject_placeholder":"اكتب في سطر واحد سبب الاستشارة..."
+    "consultation_subject_placeholder":"اكتب في سطر واحد سبب الاستشارة...",
+    "wrong_number":"رقم هاتف خاطئ"
   }
 }
