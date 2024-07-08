@@ -17,8 +17,8 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useNavigate, useParams } from "react-router-dom";
 import { DataConsultants } from "../../typeData";
-import PhoneInput from 'react-phone-input-2'
-import 'react-phone-input-2/lib/style.css'
+import PhoneInput from 'react-phone-number-input'
+import 'react-phone-number-input/style.css'
 const ConsultForm = () => {
   const { t } = useTranslation();
   const [open, setOpen] = React.useState(false);
@@ -109,7 +109,7 @@ const ConsultForm = () => {
     setvaild(validatePhoneNumber(value))
   }
   const validatePhoneNumber=(phoneNumber:any)=>{
-    const phoneNumberPattern=/^\d{10}$/;
+    const phoneNumberPattern=/^\d{15}$/;
     return phoneNumberPattern.test(phoneNumber)
   }
   return (
@@ -224,13 +224,16 @@ const ConsultForm = () => {
                 </label>
                 <PhoneInput 
                   {...register("phone")}
-                  country={"us"}
+                  inputClass="border-2"
+                  country={"tr"}
                   value={PhoneNumber}
                   onChange={handechange}
                   inputProps={{
                     require:true
                   }}
                   placeholder="+0000000000"
+
+                  inputStyle={{paddingLeft:"50px",borderRadius:"10px", border:"2px solid "}}
                 />
                 { ! valid && (
                   <p className="text-red-500">Please enter a valid 10-digit phone number .</p>
