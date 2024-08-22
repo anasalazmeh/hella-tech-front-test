@@ -1,4 +1,4 @@
-import { Close } from "@mui/icons-material";
+import { CheckBox, Close } from "@mui/icons-material";
 import {
   Button,
   CircularProgress,
@@ -10,13 +10,15 @@ import {
   FormControlLabel,
   Radio,
   RadioGroup,
-  TextField
+  TextField,
+  Checkbox
 } from "@mui/material";
 import React, { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import http from "../../../api/axios";
 import ContactCardFormItem from "../ContactCardFormItem/ContactCardFormItem";
+import {Link, useNavigate } from "react-router-dom";
 
 const ContactCardForm = () => {
   const [open, setOpen] = React.useState(false);
@@ -45,12 +47,13 @@ const ContactCardForm = () => {
       company_name: "",
       subject: "",
       messages: "",
+      acceptTerms:""
     },
   });
   const [submitLoading, setSubmitLoading] = useState(false);
 
   const [openError, setOpenError] = useState(false);
-
+  const navigate = useNavigate();
   const onSubmit = async (data: any) => {
     try {
       setSubmitLoading(true);
@@ -287,6 +290,33 @@ const ContactCardForm = () => {
                     rows={10}
                     maxRows={12}
                   />
+                );
+              }}
+            />
+          </ContactCardFormItem>
+          <ContactCardFormItem  name="">
+            <Controller
+              name="acceptTerms"
+              control={control}
+              rules={{ required: true }}
+              render={({ field }) => {
+                return (
+                  <>
+                  <Checkbox
+                  id="acceptTerms"
+                    {...field}
+                  />
+                  <label htmlFor="acceptTerms" onClick={()=>navigate("")}>
+                  <Link
+                className="hover:underline text-[18px] font-[400]"
+                to={"/privacy-policy"}
+              >
+                 {t("agree_the_privacy_policy")}
+              </Link>
+                   
+                    </label>
+                  {errors.acceptTerms && <p className="text-red-500 mx-10">{t("you_must_agree")}</p>}
+                  </>
                 );
               }}
             />

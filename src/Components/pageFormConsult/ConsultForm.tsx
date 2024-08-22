@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import "./formConsult.css";
 import React, { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import http from "../../api/axios";
 import { Close } from "@mui/icons-material";
 import {
@@ -12,10 +12,11 @@ import {
   DialogActions,
   Button,
   CircularProgress,
+  Checkbox,
 } from "@mui/material";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { DataConsultants } from "../../typeData";
 import PhoneInput, {
   formatPhoneNumber,
@@ -26,6 +27,7 @@ import PhoneInput, {
 import "react-phone-number-input/style.css";
 import ar from 'react-phone-number-input/locale/ar.json'
 import en from 'react-phone-number-input/locale/en.json'
+import ContactCardFormItem from "../ContactUs/ContactCardFormItem/ContactCardFormItem";
 const ConsultForm = () => {
   const { t,i18n } = useTranslation();
   const [open, setOpen] = React.useState(false);
@@ -59,23 +61,28 @@ const ConsultForm = () => {
       .string()
       .min(4, { message: t("errors_consultation_subject_message1") })
       .max(260, { message: t("errors_consultation_subject_message2") }),
+      acceptTerms: z.boolean().refine(val => val === true,{
+        message: t("you_must_agree"),
+      }),
   });
   type FormData = z.infer<typeof schema>;
   const {
     register,
     handleSubmit,
     reset,
+    control,
     formState: { errors },
   } = useForm<FormData>({
     resolver: zodResolver(schema),
     defaultValues: {
-      communicate_method: "",
+      communicate_method: "whatsapp",
       name: "",
       email: "",
       company: "",
       phone: "",
       address: "",
       note: "",
+      acceptTerms:false
     },
   });
   const [submitLoading, setSubmitLoading] = useState(false);
@@ -310,6 +317,37 @@ const ConsultForm = () => {
                 {errors.note && (
                   <p className="text-red-500">{errors.note.message}</p>
                 )}
+              </div>
+            </div>
+            <div className="box-row">
+              <div className="input">
+          <ContactCardFormItem  name="">
+            <Controller
+              name="acceptTerms"
+              control={control}
+              rules={{ required: true }}
+              render={({ field }) => {
+                return (
+                  <>
+                  <Checkbox
+                  id="acceptTerms"
+                    {...field}
+                  />
+                  <label htmlFor="acceptTerms" onClick={()=>navigate("")}>
+                  <Link
+                className="hover:underline text-[18px] font-[400]"
+                to={"/privacy-policy"}
+              >
+                 {t("agree_the_privacy_policy")}
+              </Link>
+                   
+                    </label>
+                  {errors.acceptTerms && <p className="text-red-500 mx-10">{t("you_must_agree")}</p>}
+                  </>
+                );
+              }}
+            />
+          </ContactCardFormItem>
               </div>
             </div>
           </div>

@@ -64,7 +64,7 @@ const Testimonial = () => {
           <div id="Testimonial1" className="text-lg   text-[#45de8f]">
             //{" "}
             <div id="Testimonial" className="text-[#1c1d22] contents">
-              07 . {t("testimonial")}
+              09 . {t("testimonial")}
             </div>
           </div>
           <div className="text-4xl  mb-8 font-medium text-[#0d1c22] w-full">

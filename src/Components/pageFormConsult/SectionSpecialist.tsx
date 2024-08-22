@@ -46,7 +46,7 @@ const SectionSpecialist = () => {
       </div> */}
       <div className="flex bg-[#F4F4F4] rounded-xl">
         <div className="w-[40%] flex justify-center items-center">
-          <img src={data?.image} alt="" className="w-full max-h-full rounded-s-xl " />
+          <img src={data?.image} alt="" className="w-full min-h[10px] max-h-[180px md:max-h-[450px] rounded-s-xl " />
         </div>
         <div className="w-[60%] px-3 py-2 xl:px-5 xl:py-2 flex justify-center  flex-col">
           <div
@@ -63,7 +63,7 @@ const SectionSpecialist = () => {
               {data?.translations.specialization[i18n.language]}
             </p>
           </div>
-          <p className="leading-[9.7px] px-2 text-[8px] md:leading-[20.04px] xl:leading-[30.04px] md:text-[15px] xl:text-[20px] font-[400] mt-1">
+          <p className="leading-[11.7px] px-2 text-[10px] md:leading-[20.04px] xl:leading-[30.04px] md:text-[15px] xl:text-[20px] font-[400] mt-1">
             {data?.translations.description[i18n.language]}
           </p>
         </div>

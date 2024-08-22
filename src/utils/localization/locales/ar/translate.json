@@ -166,6 +166,8 @@
     "errors_consultation_subject_message2":"موضوع الاستشارة طويل جدا",
     "consultation_subject":"موضوع الاستشارة",
     "consultation_subject_placeholder":"اكتب في سطر واحد سبب الاستشارة...",
-    "wrong_number":"رقم هاتف خاطئ"
+    "wrong_number":"رقم هاتف خاطئ",
+    "you_must_agree":"يجب عليك الموافقة على سياسة الخصوصية",
+    "agree_the_privacy_policy":"الموافقة على سياسة الخصوصية"
   }
 }
