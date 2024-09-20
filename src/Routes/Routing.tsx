@@ -8,11 +8,12 @@ import PrivacyPolicy from "../Pages/PrivacyPolicy/PrivacyPolicy";
 import RefundPolicy from "../Pages/RefundPolicy/RefundPolicy";
 import TermsAndConditions from "../Pages/TermsAndConitions/TermsAndConditions";
 import ConsultNow from "../Pages/ConsultNow/ConsultNow";
+import WhatsappIcon from "../Components/WhatsappIcon/WhatsappIcon";
 
 const Routing = () => {
   return (
     <div dir={DirectionResolver()}>
-      
+      <WhatsappIcon />
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/contact-us" element={<ContactUs />} />

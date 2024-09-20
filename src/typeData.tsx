@@ -16,3 +16,13 @@ export interface DataConsultants{
     }
   },
 }
+export interface DataPolicese{
+  id: number;
+  key:string;
+  name:{
+    [key:string]:"en"|"ar"|"tr"
+  },
+  description:{
+    [key:string]:"en"|"ar"|"tr"
+  },
+}

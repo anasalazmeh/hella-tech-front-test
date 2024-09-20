@@ -41,7 +41,6 @@ const MainPage = () => {
 
   return (
     <div className="mb-[10px]  scroll-smooth ">
-      <WhatsappIcon />
       <NavBar sectionRefs={sectionRefs} />
       <div className="flex flex-col gap-[100px]  px-2  ">
         <section ref={sectionRefs[0]}>
