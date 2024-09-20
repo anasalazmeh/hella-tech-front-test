@@ -28,7 +28,7 @@ const RefundPolicy = () => {
       </div>
       <div className="w-full flex justify-center">
         <div className="w-full xl:w-[1225px] lg:w-full">
-          {data?.description[i18n.language]}
+        {data?.description.en ? <div dangerouslySetInnerHTML={{__html:data.description.en}} /> : ""}
         </div>
       </div>
     </div>

@@ -1,3 +1,5 @@
+import { JSXElementConstructor, ReactElement, ReactNode } from "react";
+
 export interface DataConsultants{
   id: number;
   image:string;
@@ -19,10 +21,13 @@ export interface DataConsultants{
 export interface DataPolicese{
   id: number;
   key:string;
+  children:ReactNode
   name:{
     [key:string]:"en"|"ar"|"tr"
   },
   description:{
-    [key:string]:"en"|"ar"|"tr"
+    // [key:string]:"en"|"ar"|"tr",
+    en:TrustedHTML,
+    ar:ReactNode |TrustedHTML
   },
 }
