@@ -17,7 +17,7 @@ module.exports = {
         700: "700",
       },
       colors: {
-        main:"#25D366",
+        main:"#34C87C",
         dark: {
           100: "#334155",
           150: "#1E293B",

@@ -335,7 +335,7 @@ const ConsultForm = () => {
                   />
                   <label htmlFor="acceptTerms" onClick={()=>navigate("")}>
                   <Link
-                className="hover:underline text-[18px] font-[400] font- "
+                className="hover:underline text-[18px] font-[400] text-main underline"
                 to={"/privacy-policy"}
               >
                  {t("agree_the_privacy_policy")}

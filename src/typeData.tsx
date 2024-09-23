@@ -26,8 +26,8 @@ export interface DataPolicese{
     [key:string]:"en"|"ar"|"tr"
   },
   description:{
-    // [key:string]:"en"|"ar"|"tr",
-    en:TrustedHTML,
-    ar:ReactNode |TrustedHTML
+    [key:string]:"en"|"ar"|"tr",
+    // en:TrustedHTML,
+    // ar:ReactNode |TrustedHTML
   },
 }
