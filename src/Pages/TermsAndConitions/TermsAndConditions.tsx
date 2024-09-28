@@ -29,12 +29,11 @@ const TermsAndConditions = () => {
   return (
     <>
       <NavBar sectionRefs={null} />
-      <div className="bg-main relative text-white text-5xl flex mb-2 justify-center items-center h-40">
+      <div className="bg-main relative text-white text-3xl md:text-5xl flex mb-2 justify-center items-center h-40">
         <div>{t("terms_and_conditions")}</div>
       </div>
       <div className="w-full flex justify-center">
         <div className="w-full xl:w-[1225px] lg:w-full py-5 px-2">
-          <h1>anas</h1>
           {loading ? (
             <div role="status" className="animate-pulse">
               <h3 className="h-3 bg-gray-300 rounded-full  w-48 mb-4"></h3>
