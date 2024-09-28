@@ -3,6 +3,9 @@ module.exports = {
   darkMode: "class",
   theme: {
     extend: {
+      element:{
+          'h1':'text-[40px] text-bold'
+      },
       fontFamily: {
         sans: ["DINNextLTArabic-Regular"],
       },

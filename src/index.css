@@ -42,3 +42,9 @@ code {
   background-color: #34c87c;
   color: white;
 }
+h1{
+  @apply text-[24px] font-bold
+}
+h2{
+  @apply text-[20px] font-bold
+}
