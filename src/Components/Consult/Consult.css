@@ -4,14 +4,6 @@
   width: 100%;
   overflow: hidden;
 }
-/* @media (min-width:768px) {
-  .slider{
-    display: block;
-  }
-  .slider2{
-    display: none;
-  }
-} */
 .slides, 
 .slides2 {
   display: flex;
@@ -30,16 +22,4 @@
   }
 }
 
-/* .slide2{
-  margin: 0 10px;
-  min-width:calc(100% - 20px);
-  box-sizing: border-box;
-}
-@media (max-width:767px) {
-  .slider2{
-    display: block;
-  }
-  .slider{
-    display: none;
-  }
-} */
+

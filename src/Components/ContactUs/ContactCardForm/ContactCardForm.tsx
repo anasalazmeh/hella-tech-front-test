@@ -11,18 +11,30 @@ import {
   Radio,
   RadioGroup,
   TextField,
-  Checkbox
+  Checkbox,
 } from "@mui/material";
 import React, { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import http from "../../../api/axios";
 import ContactCardFormItem from "../ContactCardFormItem/ContactCardFormItem";
-import {Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const ContactCardForm = () => {
   const [open, setOpen] = React.useState(false);
+  const openNewWindow = () => {
+    const location = window.location.origin;
+    const width = 600;
+    const height = 400;
+    const left = window.screenX + window.outerWidth / 2 - width / 2;
+    const top = window.screenY + window.outerHeight / 2 - height / 2;
 
+    const newWindow = window.open(
+      `${location}/privacy-policy`,
+      "_blank",
+      `width=${width},height=${height},top=${top},left=${left},scrollbars=yes,resizable=yes`
+    );
+  };
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -47,7 +59,7 @@ const ContactCardForm = () => {
       company_name: "",
       subject: "",
       messages: "",
-      acceptTerms:""
+      acceptTerms: "",
     },
   });
   const [submitLoading, setSubmitLoading] = useState(false);
@@ -66,7 +78,7 @@ const ContactCardForm = () => {
         status: 1,
         address: "test",
       });
-      handleClickOpen()
+      handleClickOpen();
     } catch (err) {
       setOpenError(true);
     } finally {
@@ -294,7 +306,7 @@ const ContactCardForm = () => {
               }}
             />
           </ContactCardFormItem>
-          <ContactCardFormItem  name="">
+          <ContactCardFormItem name="">
             <Controller
               name="acceptTerms"
               control={control}
@@ -302,20 +314,21 @@ const ContactCardForm = () => {
               render={({ field }) => {
                 return (
                   <>
-                  <Checkbox
-                  id="acceptTerms"
-                    {...field}
-                  />
-                  <label htmlFor="acceptTerms" onClick={()=>navigate("")}>
-                  <Link
-                className="text-[18px] font-[400] text-main underline "
-                to={"/privacy-policy"}
-              >
-                 {t("agree_the_privacy_policy")}
-              </Link>
-                   
-                    </label>
-                  {errors.acceptTerms && <p className="text-red-500 mx-10">{t("you_must_agree")}</p>}
+                    <div className="flex items-center ">
+                    <Checkbox id="acceptTerms" {...field} />
+                    <div
+                      onClick={openNewWindow}
+                      className="text-[18px] font-[400] text-main underline -mt-2 cursor-pointer"
+                    >
+                      {t("agree_the_privacy_policy")}
+                    </div>
+                    </div>
+                    
+                    {errors.acceptTerms && (
+                      <p className="text-red-500 mx-10">
+                        {t("you_must_agree")}
+                      </p>
+                    )}
                   </>
                 );
               }}

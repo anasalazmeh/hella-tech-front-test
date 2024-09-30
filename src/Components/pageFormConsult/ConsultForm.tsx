@@ -25,13 +25,26 @@ import PhoneInput, {
   isPossiblePhoneNumber,
 } from "react-phone-number-input";
 import "react-phone-number-input/style.css";
-import ar from 'react-phone-number-input/locale/ar.json'
-import en from 'react-phone-number-input/locale/en.json'
+import ar from "react-phone-number-input/locale/ar.json";
+import en from "react-phone-number-input/locale/en.json";
 import ContactCardFormItem from "../ContactUs/ContactCardFormItem/ContactCardFormItem";
 const ConsultForm = () => {
-  const { t,i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [open, setOpen] = React.useState(false);
   const navigate = useNavigate();
+  const openNewWindow = () => {
+    const location = window.location.origin;
+    const width = 600;
+    const height = 400;
+    const left = window.screenX + window.outerWidth / 2 - width / 2;
+    const top = window.screenY + window.outerHeight / 2 - height / 2;
+
+    const newWindow = window.open(
+      `${location}/privacy-policy`,
+      "_blank",
+      `width=${width},height=${height},top=${top},left=${left},scrollbars=yes,resizable=yes`
+    );
+  };
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -61,9 +74,9 @@ const ConsultForm = () => {
       .string()
       .min(4, { message: t("errors_consultation_subject_message1") })
       .max(260, { message: t("errors_consultation_subject_message2") }),
-      acceptTerms: z.boolean().refine(val => val === true,{
-        message: t("you_must_agree"),
-      }),
+    acceptTerms: z.boolean().refine((val) => val === true, {
+      message: t("you_must_agree"),
+    }),
   });
   type FormData = z.infer<typeof schema>;
   const {
@@ -82,7 +95,7 @@ const ConsultForm = () => {
       phone: "",
       address: "",
       note: "",
-      acceptTerms:false
+      acceptTerms: false,
     },
   });
   const [submitLoading, setSubmitLoading] = useState(false);
@@ -101,12 +114,11 @@ const ConsultForm = () => {
   const [valid, setvaild] = useState(true);
   const onSubmit = async (data: any) => {
     if (valid) {
-
       try {
         setSubmitLoading(true);
         await http.post("/consultations", {
           ...data,
-          phone:formatPhoneNumberIntl(PhoneNumber),
+          phone: formatPhoneNumberIntl(PhoneNumber),
           lang: localStorage.getItem("i18nextLng"),
           order: 1,
           status: 1,
@@ -149,7 +161,7 @@ const ConsultForm = () => {
               </label>
             </div>
             <div className="radio">
-            <input
+              <input
                 {...register("communicate_method")}
                 type="radio"
                 value="video_call"
@@ -237,9 +249,8 @@ const ConsultForm = () => {
                 </label>
                 <PhoneInput
                   {...register("phone")}
-                  labels={i18n.language==="ar" ? ar :en}
+                  labels={i18n.language === "ar" ? ar : en}
                   onChange={handechange}
-                  
                   inputProps={{
                     require: true,
                   }}
@@ -321,33 +332,34 @@ const ConsultForm = () => {
             </div>
             <div className="box-row">
               <div className="input">
-          <ContactCardFormItem  name="">
-            <Controller
-              name="acceptTerms"
-              control={control}
-              rules={{ required: true }}
-              render={({ field }) => {
-                return (
-                  <>
-                  <Checkbox
-                  id="acceptTerms"
-                    {...field}
+                <ContactCardFormItem name="">
+                  <Controller
+                    name="acceptTerms"
+                    control={control}
+                    rules={{ required: true }}
+                    render={({ field }) => {
+                      return (
+                        <>
+                          <div className="flex items-center ">
+                            <Checkbox id="acceptTerms" {...field} />
+                            <div
+                              onClick={openNewWindow}
+                              className="text-[18px] font-[400] text-main underline -mt-2 cursor-pointer"
+                            >
+                              {t("agree_the_privacy_policy")}
+                            </div>
+                          </div>
+
+                          {errors.acceptTerms && (
+                            <p className="text-red-500 mx-10">
+                              {t("you_must_agree")}
+                            </p>
+                          )}
+                        </>
+                      );
+                    }}
                   />
-                  <label htmlFor="acceptTerms" onClick={()=>navigate("")}>
-                  <Link
-                className="hover:underline text-[18px] font-[400] text-main underline"
-                to={"/privacy-policy"}
-              >
-                 {t("agree_the_privacy_policy")}
-              </Link>
-                   
-                    </label>
-                  {errors.acceptTerms && <p className="text-red-500 mx-10">{t("you_must_agree")}</p>}
-                  </>
-                );
-              }}
-            />
-          </ContactCardFormItem>
+                </ContactCardFormItem>
               </div>
             </div>
           </div>
