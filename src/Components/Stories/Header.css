@@ -1,0 +1,4 @@
+.backgroundHeader{
+  background: linear-gradient(180deg, #34C87C 0%, #00B08C 100%);
+  text-transform: capitalize;
+}

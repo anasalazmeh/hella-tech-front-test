@@ -61,18 +61,6 @@ const PrivacyPolicy = () => {
 
         </div>
       </div>
-      {/* <iframe
-          height={700}
-          src={
-            process.env.PUBLIC_URL +
-            `/pdfs/${
-              localStorage.getItem("i18nextLng") === "ar"
-                ? "privacy-policy-ar.pdf"
-                : "privacy-policy.pdf"
-            }`
-          }
-          className="w-full"
-        /> */}
     </>
   );
 };

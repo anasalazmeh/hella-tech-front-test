@@ -14,6 +14,7 @@ import HelaVideo from "../HelaVideo/HelaVideo";
 import Consult from "../../Components/Consult/Consult";
 import http from "../../api/axios";
 import { DataConsultants } from "../../typeData";
+import { fbq } from "react-facebook-pixel";
 const MainPage = () => {
   const [data,setData]=useState<DataConsultants[]>()
   useEffect(() => {

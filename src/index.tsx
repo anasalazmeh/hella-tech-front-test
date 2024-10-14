@@ -9,8 +9,18 @@ import { ThemeProvider } from "@mui/material";
 import theme from "./utils/Theme";
 import { I18nextProvider } from "react-i18next";
 import i18n from "./utils/localization/i18n";
-import { DirectionResolver } from "./utils/hooks";
-import NavBar from "./Components/NavBar/NavBar";
+
+import ReactPixel from 'react-facebook-pixel';
+
+const pixelId = '448275588090205'; // Replace with your Facebook Pixel ID
+
+const options = {
+  autoConfig: true, // set pixel's autoConfig
+  debug: false, // enable logs
+};
+
+ReactPixel.init(pixelId, undefined, options);
+ReactPixel.pageView();
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement

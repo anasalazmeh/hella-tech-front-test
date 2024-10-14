@@ -28,7 +28,7 @@ const TermsAndConditions = () => {
   }
   return (
     <>
-      <NavBar sectionRefs={null} />
+      <NavBar sectionRefs={null} isVideo />
       <div className="bg-main relative text-white text-3xl md:text-5xl flex mb-2 justify-center items-center h-40">
         <div>{t("terms_and_conditions")}</div>
       </div>
@@ -58,18 +58,6 @@ const TermsAndConditions = () => {
           )}
         </div>
       </div>
-      {/* <iframe
-          height={700}
-          src={
-            process.env.PUBLIC_URL +
-            `/pdfs/${
-              localStorage.getItem("i18nextLng") === "ar"
-                ? "terms-and-conditions-ar.pdf"
-                : "terms-and-conditions.pdf"
-            }`
-          }
-          className="w-full"
-        /> */}
     </>
   );
 };

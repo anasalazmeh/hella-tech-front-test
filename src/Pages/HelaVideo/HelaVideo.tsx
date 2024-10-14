@@ -4,7 +4,6 @@ const HelaVideo = () => {
   const { t } = useTranslation();
   return (
     <>
-      <WhatsappIcon />
       <div
         id="video"
         className="flex flex-col gap-[20px] items-center w-full px-2 mt-12  "

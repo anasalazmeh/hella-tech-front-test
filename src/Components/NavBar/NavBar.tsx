@@ -75,7 +75,7 @@ const NavBar = ({
           <div className="xl:w-[1225px] lg:w-full   flex  relative justify-between items-center">
             <div
               dir={DirectionResolver()}
-              className=" w-full flex flex-row-reverse gap-[40px] justify-between items-center justify-items-center place-items-center flex-wrap"
+              className=" w-full flex flex-row-reverse gap-[20px] justify-between items-center justify-items-center place-items-center flex-wrap"
             >
               <IconButton
                 sx={{
@@ -110,7 +110,7 @@ const NavBar = ({
                         ? "2px solid #28ea86"
                         : "2px solid #34C87C",
                     py: "8px",
-                    px: "35px",
+                    px: "15px",
                     display: { xs: "none", md: "none", lg: "flex" },
                     fontWeight: 700,
                   }}
@@ -213,6 +213,17 @@ const NavBar = ({
                   onClick={() => navigate("/contact-us")}
                 >
                   {t("contact_us")}
+                </div>
+                <div
+                  className={`text-[18px] hover:text-[#34C87C] hover:cursor-pointer font-normal  leading-normal  ${
+                    isContactUs
+                      ? " text-[#34C87C]  font-weight-800  text-[18px] "
+                      : "text-black font-weight-400 text-[18px] "
+                  } `}
+                  color="inherit"
+                  onClick={() => navigate("/blogs")}
+                >
+                  {t("blogs")}
                 </div>
               </div>
               <img

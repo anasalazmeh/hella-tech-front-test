@@ -154,6 +154,21 @@ const SideBar = ({
           {" "}
           {t("contact_us")}
         </div>
+        <div
+          className={`text-xl font-['DINNextLTArabic-Regular'] hover:text-[#34C87C] hover:cursor-pointer font-normal leading-normal mb-2 ml-8 ${
+            isContactUs || isConsultNow
+              ? " text-[#34C87C]  font-weight-800 text-[18px] "
+              : "text-xl font-normal leading-normal"
+          } `}
+          color="inherit"
+          onClick={() => {
+            navigate("/blogs");
+            setDrawer(undefined);
+          }}
+        >
+          {" "}
+          {t("blogs")}
+        </div>
         <a
           href="#consult"
           onClick={() => {

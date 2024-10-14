@@ -137,7 +137,7 @@
     "bara_desc": "موقع إلكتروني يمثل سوق إلكترونية لبيع المنتجات بفئات متعددة، مع إمكانية الطلب والدفع إلكترونيا.",
     "our_portfolio": "معرض أعمالنا",
     "an_overview_of_the_projects": "لمحة عن الأعمال التي نفذت بإيدي فريق هيلا",
-    "refund_policy": "سياسة الاسترجاع",
+    "refund_policy": "سياسة الاسترداد",
     "terms_and_conditions": "الأحكام والشروط",
     "privacy_policy": "سياسة الخصوصية",
     "consult_now":"استشر الآن",
@@ -168,6 +168,7 @@
     "consultation_subject_placeholder":"اكتب في سطر واحد سبب الاستشارة...",
     "wrong_number":"رقم هاتف خاطئ",
     "you_must_agree":"يجب عليك الموافقة على سياسة الخصوصية",
-    "agree_the_privacy_policy":"الموافقة على سياسة الخصوصية"
+    "agree_the_privacy_policy":"الموافقة على سياسة الخصوصية",
+    "blogs":"مدونات"
   }
 }
