@@ -110,14 +110,14 @@ const NavBar = ({
                         ? "2px solid #28ea86"
                         : "2px solid #34C87C",
                     py: "8px",
-                    px: "15px",
+                    px: "35px",
                     display: { xs: "none", md: "none", lg: "flex" },
                     fontWeight: 700,
                   }}
                 ></NavTextButton>
               </a>
 
-              <div className="lg:flex flex-row gap-[40px] px-[52px] md:hidden xs:hidden  flex-wrap ">
+              <div className="lg:flex flex-row gap-[40px] px-[42px] md:hidden xs:hidden  flex-wrap ">
                 <a
                   href="#home"
                   onClick={() => {
