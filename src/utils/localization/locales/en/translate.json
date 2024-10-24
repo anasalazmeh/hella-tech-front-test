@@ -175,6 +175,8 @@
     "categories":"Categories",
     "most_read":"Top 5 Most-Read",
     "recent_post":"Recent Post",
-    "you_may_also_like":"You May also like"
+    "you_may_also_like":"You May also like",
+    "next":"Next",
+    "previous":"Previous"
   }
 }

@@ -15,6 +15,7 @@ import img5 from "./image/image 4.png";
 import Menu from "../../Components/blogs/components/Menu/Menu";
 import { FaPlus } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
+import SectionNextPreviousBlog from "../../Components/blogDerails/SectionNextPreviousBlog";
 const BlogsDetails = () => {
   const [open, setOpen] = useState(false);
   useEffect(() => {
@@ -55,25 +56,25 @@ const BlogsDetails = () => {
         "IMPACTS OF TECHNOLOGICAL DEVELOPMENTS ON MARKETING ACTIVITIES",
     },
   ];
-  const {t} =useTranslation()
+  const { t } = useTranslation();
   return (
     <>
       <NavBar sectionRefs={null} isVideo />
       <HeaderDetailsImage />
       <Container>
         <div className="px-6 xl:px-0">
-        <HeaderBlog />
-        <div className="block xl:hidden mt-[20px]">
-          <button
-            className="border border-main rounded-md px-10 py-2 flex items-center justify-center text-2xl transition-all hover:bg-main hover:text-white "
-            onClick={() => setOpen(true)}
-          >
-            {t("side_menu")} <FaPlus className="text-xl mx-2 mt-2" />
-          </button>
+          <HeaderBlog />
+          <div className="block xl:hidden mt-[20px]">
+            <button
+              className="border border-main rounded-md px-10 py-2 flex items-center justify-center text-2xl transition-all hover:bg-main hover:text-white "
+              onClick={() => setOpen(true)}
+            >
+              {t("side_menu")} <FaPlus className="text-xl mx-2 mt-2" />
+            </button>
+          </div>
         </div>
-        </div>
-        <div className="flex m-0 xl:gap-5">
-          <div className="px-6 xl:px-0 pb-3">
+        <div className="flex m-0 xl:gap-5 pb-6">
+          <div className="px-6 xl:px-0 ">
             <img src={img} alt="" className="w-full h-[392px] object-fill" />
             <p className="text-[27px] py-2">
               Technological developments, are now more than just innovations,
@@ -112,9 +113,9 @@ const BlogsDetails = () => {
               characterized by a product-centric approach, relying on the 4P
               strategies (product, price, place
             </p>
-            
+            <SectionNextPreviousBlog />
           </div>
-          <div  className="flex-1">
+          <div className="flex-1">
             <Menu open={open} setOpen={setOpen}>
               <Top5Blogs title="most_read" stories={data} />
               <Top5Blogs title="recent_post" stories={data} />

@@ -3,7 +3,7 @@ import Container from "../container/Container";
 
 const HeaderBlog = () => {
   return (
-    <div className="flex flex-col pt-3">
+    <div className="flex flex-col pt-6">
       <h1 className="uppercase text-main w-full md:w-[700px]">
         impacts of technological developments on mrketing avtivities
       </h1>
