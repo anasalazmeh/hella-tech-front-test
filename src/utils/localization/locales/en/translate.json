@@ -167,6 +167,14 @@
     "wrong_number":"Wrong phone number",
     "you_must_agree":"You must agree to the privacy policy",
     "agree_the_privacy_policy":"Agree the privacy policy.",
-    "blogs":"Blogs"
+    "blogs":"Blogs",
+    "our_stories":"Our Stories",
+    "we_create_awesome_blog":"WE CREATE AWESOME BLOG",
+    "read_more":"Read More",
+    "search":"Search",
+    "categories":"Categories",
+    "most_read":"Top 5 Most-Read",
+    "recent_post":"Recent Post",
+    "you_may_also_like":"You May also like"
   }
 }

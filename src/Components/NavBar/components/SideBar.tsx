@@ -30,7 +30,7 @@ const SideBar = ({
             className="self-start w-16 shrink-0"
             onClick={() => setDrawer(undefined)}
           />
-          <div className="text-xl   font-bold text-[#34c87c]">
+          <div className="text-xl font-bold text-[#34c87c]">
             {t("side_menu")}
           </div>
         </div>

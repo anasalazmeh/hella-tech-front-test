@@ -169,6 +169,14 @@
     "wrong_number":"رقم هاتف خاطئ",
     "you_must_agree":"يجب عليك الموافقة على سياسة الخصوصية",
     "agree_the_privacy_policy":"الموافقة على سياسة الخصوصية",
-    "blogs":"مدونات"
+    "blogs":"مدونات",
+    "our_stories":"مقالاتنا",
+    "we_create_awesome_blog":"نحن ننشئ مدونة رائعة",
+    "read_more":"اقرا المزيد",
+    "search":"بحث",
+    "categories":"الفئات",
+    "most_read":"الاكثر قراءة",
+    "recent_post":"أحدث المقالات",
+    "you_may_also_like":"مقالات قد تعجبك"
   }
 }

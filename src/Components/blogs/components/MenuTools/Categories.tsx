@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { useSearchParams } from "react-router-dom";
 
 const Categories = () => {
@@ -28,11 +29,12 @@ const Categories = () => {
     }
     console.log(categories);
   };
+  const {t} =useTranslation()
   return (
     <div>
-      <h1>Categories</h1>
+      <h1>{t("categories")}</h1>
       <div className="px-4 space-y-2">
-        <div className="space-x-2 text-xl">
+        <div className="flex gap-3 items-center text-xl">
           <input
             type="checkbox"
             id="digital"
@@ -48,7 +50,7 @@ const Categories = () => {
             Digital
           </label>
         </div>
-        <div className="space-x-2 text-xl">
+        <div className="flex gap-3 items-center text-xl">
           <input
             type="checkbox"
             name=""
@@ -65,7 +67,7 @@ const Categories = () => {
             e commerce
           </label>
         </div>
-        <div className="space-x-2 text-xl">
+        <div className="flex gap-3 items-center  text-xl">
           <input
             type="checkbox"
             name=""
@@ -82,7 +84,7 @@ const Categories = () => {
             Tech
           </label>
         </div>
-        <div className="space-x-2 text-xl">
+        <div className="flex gap-3 items-center text-xl">
           <input
             type="checkbox"
             name=""

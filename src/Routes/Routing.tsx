@@ -9,7 +9,8 @@ import RefundPolicy from "../Pages/RefundPolicy/RefundPolicy";
 import TermsAndConditions from "../Pages/TermsAndConitions/TermsAndConditions";
 import ConsultNow from "../Pages/ConsultNow/ConsultNow";
 import WhatsappIcon from "../Components/WhatsappIcon/WhatsappIcon";
-import PageStories from "../Pages/Stories/PageStories";
+import PageStories from "../Pages/blogs/PageBlogs";
+import BlogsDetails from "../Pages/BlogsDetails/BlogsDetails";
 
 const Routing = () => {
   return (
@@ -24,7 +25,7 @@ const Routing = () => {
         <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
         <Route path="/consult-now/:slug" element={<ConsultNow />} />
         <Route path="/blogs" element={<PageStories />} />
-        <Route path="/consult-now/:id" element={<ConsultNow />} />
+        <Route path="/blogs/details/:id" element={<BlogsDetails />} />
       </Routes>
       <Footer />
     </div>

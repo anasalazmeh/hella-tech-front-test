@@ -1,8 +1,10 @@
 import React from "react";
 import classnames from "classnames";
 import { DOTS, usePagination } from "./uesPagination";
-import './pagination.css'
-import { GoChevronLeft ,GoChevronRight } from "react-icons/go";
+import "./pagination.css";
+import { GoChevronLeft, GoChevronRight } from "react-icons/go";
+import { useTranslation } from "react-i18next";
+
 const Pagination = ({
   onPageChange,
   totalCount,
@@ -10,8 +12,8 @@ const Pagination = ({
   currentPage,
   pageSize,
   className,
-}:any) => {
-
+}: any) => {
+  const { i18n } = useTranslation();
   const paginationRange = usePagination({
     currentPage,
     totalCount,
@@ -20,7 +22,7 @@ const Pagination = ({
   });
 
   // If there are less than 2 times in pagination range we shall not render the component
-  if (currentPage === 0 || (paginationRange.length)  < 2) {
+  if (currentPage === 0 || paginationRange.length < 2) {
     return null;
   }
 
@@ -32,7 +34,8 @@ const Pagination = ({
     onPageChange(currentPage - 1);
   };
 
-  let lastPage = (paginationRange[paginationRange?.length - 1]);
+  let lastPage = paginationRange[paginationRange?.length - 1];
+
   return (
     <ul
       className={classnames("pagination-container", { [className]: className })}
@@ -44,9 +47,13 @@ const Pagination = ({
         })}
         onClick={onPrevious}
       >
-        <div className="arrow left" >
-          <GoChevronLeft className="bg-[#0D1C22] h-6 w-6 text-white rounded-full text-4xl group-hover:bg-main flex justify-center items-center"/>
-          </div>
+        <div className="arrow left">
+          {i18n.language === "en" ? (
+            <GoChevronLeft className="bg-[#0D1C22] h-4 w-4 md:h-6 md:w-6 text-white rounded-full text-4xl group-hover:bg-main flex justify-center items-center " />
+          ) : (
+            <GoChevronRight className="bg-[#0D1C22] h-4 w-4 md:h-6 md:w-6 text-white rounded-full text-4xl group-hover:bg-main flex justify-center items-center " />
+          )}
+        </div>
       </li>
       {paginationRange?.map((pageNumber) => {
         // If the pageItem is a DOT, render the DOTS unicode character
@@ -73,8 +80,12 @@ const Pagination = ({
         })}
         onClick={onNext}
       >
-        <div className="arrow right group " >
-        <GoChevronRight className="bg-[#0D1C22] h-6 w-6 text-white rounded-full text-4xl group-hover:bg-main flex justify-center items-center "/>
+        <div className="arrow right group ">
+          {i18n.language === "en" ? (
+            <GoChevronRight className="bg-[#0D1C22] h-4 w-4 md:h-6 md:w-6 text-white rounded-full text-4xl group-hover:bg-main flex justify-center items-center " />
+          ) : (
+            <GoChevronLeft className="bg-[#0D1C22] h-4 w-4 md:h-6 md:w-6 text-white rounded-full text-4xl group-hover:bg-main flex justify-center items-center " />
+          )}
         </div>
       </li>
     </ul>
@@ -82,5 +93,3 @@ const Pagination = ({
 };
 
 export default Pagination;
-
-

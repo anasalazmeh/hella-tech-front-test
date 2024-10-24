@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { FaSearch } from "react-icons/fa";
 import { useSearchParams } from "react-router-dom";
 
@@ -28,6 +29,7 @@ const BoxSearch = () => {
     URLParam.delete("search");
     setSearchParams(URLParam);
   };
+  const {t} =useTranslation()
   return (
     <div className="flex h-10 w-full">
       <button
@@ -38,12 +40,13 @@ const BoxSearch = () => {
       </button>
       <input
         type="text"
-        className="w-full ps-2 text-black"
-        placeholder="Search..."
+        className="w-full ps-2 text-black outline-none "
+        placeholder={t("search")+"..."}
         onChange={(e) => {
           if (e.target.value.length > 0) {
             setSearch(e.target.value);
           } else {
+            setSearch('')
             deleteURLParams();
           }
         }}
