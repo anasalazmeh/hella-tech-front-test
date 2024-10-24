@@ -76,7 +76,7 @@ const BlogsDetails = () => {
         <div className="flex m-0 xl:gap-5 pb-6">
           <div className="px-6 xl:px-0 ">
             <img src={img} alt="" className="w-full h-[392px] object-fill" />
-            <p className="text-[27px] py-2">
+            <p className="text-[20px] md:text-[27px] py-2">
               Technological developments, are now more than just innovations,
               profoundly influence production processes and consumers' daily
               lives, changing their habits and behaviours. Comparing production
@@ -87,9 +87,9 @@ const BlogsDetails = () => {
               based on technological developments and explain the distinctive
               features of each marketing stage.
             </p>
-            <h3 className="text-[27px] py-2 text-main">Marketing 1.0 </h3>
+            <h3 className="text-[20px] md:text-[27px] py-2 text-main">Marketing 1.0 </h3>
             <img src={imgg} alt="" className="w-full h-[392px] object-fill" />
-            <p className="text-[27px]">
+            <p className="text-[20px] md:text-[27px]">
               emerged from the Industrial Revolution, focusing on production
               efficiency with businesses using industrial machines to
               mass-produce standardized products. Consumers were viewed as

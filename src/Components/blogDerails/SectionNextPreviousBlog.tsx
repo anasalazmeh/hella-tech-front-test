@@ -13,7 +13,7 @@ const SectionNextPreviousBlog = () => {
                 ) : (
                   <GoChevronRight className="mt-1 bg-white w-[15px] mx-1 h-[15px] rounded-full text-black" />
                 )}
-        <p className="uppercase">{t("previous")}</p>
+        <p className="uppercase text-[10px] md:text-[16px]">{t("previous")}</p>
         <img src={img1} alt="" className="w-[50px] sm:w-[80px] h-[50px] sm:h-[80px] rounded-full" />
         <p className={`uppercase hidden md:block text-[12px] ${i18n.language === "en"?'text-left':"text-right"} w-[180px]`}>
           IMPACTS OF TECHNOLOGICAL DEVELOPMENTS ON MARKETING ACTIVITIES
@@ -24,7 +24,7 @@ const SectionNextPreviousBlog = () => {
           IMPACTS OF TECHNOLOGICAL DEVELOPMENTS ON MARKETING ACTIVITIES
         </p>
         <img src={img2} alt="" className="w-[50px] sm:w-[80px] h-[50px] sm:h-[80px] rounded-full" />
-        <p className="uppercase">{t("next")}</p>
+        <p className="uppercase text-[10px] md:text-[16px]">{t("next")}</p>
         {i18n.language === "en" ? (
                   <GoChevronRight className="mt-1 bg-white w-[15px] mx-1 h-[15px] rounded-full text-black" />
                 ) : (

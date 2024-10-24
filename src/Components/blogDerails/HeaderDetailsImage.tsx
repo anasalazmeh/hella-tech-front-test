@@ -7,7 +7,7 @@ const HeaderDetailsImage = () => {
       style={{
         background: "linear-gradient(180deg, #34C87C 0%, #00B08C 100%)",
       }}
-      className="py-10 relative"
+      className="py-10 relative "
     >
       <img
         src={img}
@@ -15,7 +15,7 @@ const HeaderDetailsImage = () => {
         className="absolute top-0 h-full w-full opacity-20 z-10 object-cover"
       />
       <Container>
-        <p className="relative z-20 text-white uppercase text-3xl w-full md:w-[700px]">
+        <p className="relative z-20 px-6 md:px-0 text-white uppercase text-xl  md:text-3xl w-full md:w-[700px]">
           IMPACTS OF TECHNOLOGICAL DEVELOPMENTS ON MARKETING ACTIVITIES
         </p>
       </Container>
